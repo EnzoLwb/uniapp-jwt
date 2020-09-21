@@ -1,0 +1,16 @@
+{
+	"pages": [ 
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "调查表"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "多野智能科技",
+		"navigationBarBackgroundColor": "#92C3F3",
+		"backgroundColor": "#F8F8F8"
+	}
+}
