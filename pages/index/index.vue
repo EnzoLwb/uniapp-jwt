@@ -157,10 +157,12 @@
 				genderDesc: ['女','男'],
 				imgList: [],
 				uploadImgsUrl:[],
+				isLogin:null
 			};
 		},
 		onLoad() {
-
+				this.isLogin = this.$common.checkLogin();
+				console.log(this.isLogin);
 		},
 		methods:{
 			RegionChange(e) {

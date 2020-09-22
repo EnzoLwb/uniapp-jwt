@@ -5,6 +5,12 @@
 			"style": {
 				"navigationBarTitleText": "调查表"
 			}
+		},
+		{
+			"path": "pages/mine/index",
+			"style": {
+				"navigationBarTitleText": "个人中心"
+			}
 		}
 	],
 	"globalStyle": {
@@ -12,5 +18,26 @@
 		"navigationBarTitleText": "多野智能科技",
 		"navigationBarBackgroundColor": "#92C3F3",
 		"backgroundColor": "#F8F8F8"
-	}
+	},
+	"tabBar": {
+			"color": "#7A7E83",
+			"selectedColor": "#49C9A7",
+			"borderStyle": "black",
+			"backgroundColor": "#F8F8F8",
+			"list": [
+				{
+					"pagePath": "pages/index/index",
+					"selectedIconPath": "static/index_select.png",
+					"iconPath": "static/index_no_select.png",
+					"text": "首页"
+				},
+				{
+					"pagePath": "pages/mine/index",
+					"selectedIconPath": "static/userSL.png",
+					"iconPath": "static/user.png",
+					"text": "个人中心"
+				}
+			]
+		}
+	
 }
