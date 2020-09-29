@@ -1299,7 +1299,7 @@ button.cuIcon.lg {
 	box-sizing: border-box;
 	width: 200%;
 	height: 200%;
-	border-bottom: 1upx solid #ddd;
+	/* border-bottom: 1upx solid #ddd; */
 	border-radius: inherit;
 	content: " ";
 	transform: scale(.5);
@@ -3401,6 +3401,10 @@ scroll-view.cu-steps .cu-item {
 .line-white::after,
 .lines-white::after {
 	border-color: #ffffff;
+}
+.bg-gold {
+	background-color: #DBA871;
+	color: #ffffff;
 }
 
 .bg-red {

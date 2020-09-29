@@ -22,7 +22,8 @@ const loginCode = provider => {
         });
     })
 }
-// #endif
+
 export {
     loginCode //登录获取code
 }
+// #endif
