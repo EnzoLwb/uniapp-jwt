@@ -1,102 +1,245 @@
 <template>
-	<view class="bg-white" style="min-height: 100%;">
-		<view class="container bg-white">
-			<swiper class="screen-swiper square-dot" :indicator-dots="true" :circular="true"
-			 :autoplay="true" interval="5000" duration="500">
-				<swiper-item v-for="(item,index) in swiperList" :key="index">
-					<image :src="item.url" mode="aspectFill" v-if="item.type=='image'"></image>
-					<video :src="item.url" autoplay loop muted :show-play-btn="false" :controls="false" objectFit="cover" v-if="item.type=='video'"></video>
-				</swiper-item>
-			</swiper>
-			<view class="cu-card case bg-white padding radius shadow-warp margin">
-				<view class="cu-item">
-					<view class="cu-avatar round xl"  style="float: right;background-image:url(https://cdn.learnku.com/uploads/avatars/25478_1552028471.jpg!/both/400x400);"></view>
+	<view class="container">
+		<view class="navbar">
+			<button type="default" plain class="talk-btn" @tap="showAddressModal">
+				<image src="/static/images/home/pos.png"></image>
+				<view class="wenyue-font">柯基侦探联盟</view>
+				<image src="/static/images/common/black_arrow_right.png" class="right-icon"></image>
+			</button>
+		</view>
+		<swiper class="banner-swiper" circular :autoplay="autoplay" :interval="5000" :duration="1000">
+			<swiper-item class="banner-swiper-item" v-for="(item, index) in swipers" :key="index">
+				<image :src="item" mode="widthFix"  style="max-height: 300px;"></image>
+			</swiper-item>
+		</swiper>
+		<view class="content">
+			<!-- 剧本列表 && 组局开车 begin -->
+			<view class="section-1">
+				<navigator class="item" open-type="switchTab" url="/pages/index/index" hover-class="none">
+					<image src="/static/images/home/book.png" mode="widthFix"></image>
+					<view class="wenyue-font">剧本列表</view>
+					<view class="text-color-assist">开始受理立案</view>
+				</navigator>
+				<navigator class="item" open-type="navigate" url="/pages/addresses/addresses" hover-class="none">
+					<image src="/static/images/home/chedui.png" mode="widthFix"></image>
+					<view class="wenyue-font">组局开车</view>
+					<view class="text-color-assist">就差你啦~大侦探</view>
+				</navigator>
+			</view>
+			<!-- 剧本列表 && 组局开车 end -->
+			<!-- 新到剧本的公告 begin -->
+			<view class="xinqiubobao">
+				<view class="title" style="display: flex;padding-left: 15rpx;">
+					<span class="wenyue-font">最新案件</span>
 					<view>
-						<h3>异想天开天津大学城店</h3>
-						<view class="margin-top" style="font-size: 28rpx;">桌号10</view>
+						<view class="cu-tag badge">New!</view>
 					</view>
 				</view>
-				<view class="cu-list menu-avatar">
-							<view class="cu-item">
-								<view class="cu-avatar round lg" style="background-image:url(https://wx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEI00iav9lnXkdU7EpLLeSJWlKk5TOgBwpTnrUibvgW97HfSVictDtjRr0Uhw9wSWKTylgfaIPMq5x3Xw/132);">
-									<view class="cu-tag badge cuIcon-female bg-pink"></view>
-									<!-- cuIcon-male bg-blue 男 -->
+				<swiper class="swiper" next-margin="80rpx" :autoplay="false" :interval="5000" :duration="500" circular>
+					<swiper-item class="swiper-item" v-for="(item, index) in boardcast" :key="index">
+						<view class="swiper-item-wrapper">
+							<image :src="item.coverPic" class="img"></image>
+							<view class="desc" style="width: 600rpx;">
+								<view class="title wenyue-font">{{ item.title }}</view>
+								<view class="desc" style="	">{{ item.subtitle }}</view>
+							</view>
+						</view>
+					</swiper-item>
+				</swiper>
+			</view>
+			<!-- 新到剧本的公告 end -->
+			<!-- DM推荐剧本 begin -->
+			<view class="recommend">
+				<view class="title" style="display: flex;padding-left: 15rpx;">
+					<span class="wenyue-font">主持人推荐</span>
+					<view>
+						<view class="cu-tag badge">Hot!</view>
+					</view>
+				</view>
+				<swiper class="swiper" next-margin="20rpx" :autoplay="autoplay" :interval="5000" :duration="500" circular>
+					<swiper-item class="swiper-item" v-for="(item, index) in hot_list" :key="index">
+						<view class="swiper-item-wrapper cu-card case" >
+							<view class="cu-item shadow">
+								<view class="image">
+									<image :src="item.coverPic" 
+									 ></image>
+									<view class="cu-tag bg-blue">{{item.title}}</view>
+									<view class="cu-bar bg-shadeBottom"> <text class="text-cut">{{item.recommend_reason}}</text></view>
 								</view>
-								<view class="content flex-sub">
-									<view class="text-grey">Enzo,欢迎光临！</view>
+							</view>							
+						</view>
+					</swiper-item>
+				</swiper>
+			</view>
+			<!-- DM推荐剧本 end -->
+			<!-- 本店DM begin -->
+			<view class="hostess">
+				<view class="title" style="display: flex;padding-left: 15rpx;">
+					<span class="wenyue-font">本店主持人</span>
+					<view>
+						<view class="cu-tag badge">DM!</view>
+					</view>
+					<image src="/static/images/common/black_arrow_right.png" class="right-icon"></image>
+				</view>
+				<swiper class="swiper" next-margin="40rpx" :autoplay="autoplay" :interval="5000" :duration="500">
+					<swiper-item class="swiper-item" v-for="(item, index) in dm_list" :key="index">
+						<view class="swiper-item-wrapper cu-card case" >
+							<view class="cu-item shadow">
+								<view class="image">
+									<image  class="image" :src="item.coverPic" ></image>
+									<view class="cu-bar bg-shadeBottom"> 
+										<image src="/static/images/home/fire.png" class="hot"></image>
+										<span>{{item.number}}</span>
+									</view>
+								</view>
+								<view class="neutra-font kbcs">开本次数：34</view>
+							</view>
+						</view>
+					</swiper-item>
+				</swiper>
+			</view>
+			<!-- 本店DM end -->
+		</view>
+		<!-- 弹窗 -->
+		<view class="cu-modal" :class="visible==true?'show':''" @tap="hideModal" >
+			<view class="cu-dialog" @tap.stop="">
+				<view class="content" >
+					<list-cell v-for="(address, index) in addresses" :key="index" :line-left="false">
+						<view class="address">
+							<view class="info">
+								<view class="user-row wenyue-font">
+									{{ `${address.name}` }}
+								</view>
+								<view class="address-row">
+									<view class="is-default">{{address.union}}</view>
+									<view class="address neutra-font">{{ `${address.address}` }}</view>
 								</view>
 							</view>
+							<image v-if="address.status" src="/static/images/home/pos.png"  class="edit-btn"></image>
+							<image v-else src="/static/images/home/change.png"  class="edit-btn"></image>
+						</view>
+					</list-cell>
 				</view>
-				
-			</view>
-			<view class="padding flex flex-direction" style="margin-top: 80rpx;">
-				<button class="cu-btn bg-gold margin-tb-sm lg" @click="navigate()">点餐</button>
 			</view>
 		</view>
-
+		<!-- 弹窗店铺结束 -->
+		<!-- 加载 -->
+		<load-modal :show="loadModal"></load-modal>
 	</view>
 </template>
 
 <script>
-	export default{
-		data(){
+	import listCell from '@/components/list-cell/list-cell.vue'
+	export default {
+		components: {
+			listCell
+		},
+		data() {
 			return {
-				swiperList: [{
-							id: 0,
-							type: 'image',
-							url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
-						}, {
-							id: 1,
-							type: 'image',
-							url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big37006.jpg',
-						}, {
-							id: 2,
-							type: 'image',
-							url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-						}, {
-							id: 3,
-							type: 'image',
-							url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-						}, {
-							id: 4,
-							type: 'image',
-							url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
-						}, {
-							id: 5,
-							type: 'image',
-							url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
-						}, {
-							id: 6,
-							type: 'image',
-							url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
-						}],
-					}
-
+				addresses: [
+					{
+						name:"柯基推理馆南开分店",
+						address:"龙德里22-10-1001",
+						union:"南开店",
+						id:"DD11LJH391",
+						status:true
+					},
+					{
+						name:"柯基推理馆红桥分店",
+						address:"千禧园22-10-1001",
+						union:"红桥店",
+						id:"DD11LJH391",
+						status:false
+					},
+					{
+						name:"柯基推理馆和平分店",
+						address:"福利中心12-10-1001",
+						union:"和平店",
+						id:"DD11LJH391",
+						status:false
+					},
+				],
+				boardcast: [],
+				hot_list:[],
+				autoplay:false,
+				loadModal:true,
+				visible:false,
+				dm_list:[
+					{
+						coverPic:"//d303.paixin.com/thumbs/15997358/199942388/staff_1024.jpg",
+						number:134,
+					},
+					{
+						coverPic:"//d301.paixin.com/thumbs/1085342/55439821/staff_1024.jpg",
+						number:1134,
+					},
+					{
+						coverPic:"//d302.paixin.com/thumbs/14803258/175058196/staff_1024.jpg",
+						number:31,
+					},
+				],
+				swipers: [
+					"//d303.paixin.com/thumbs/13193658/265378856/staff_1024.jpg",
+					"//d301.paixin.com/thumbs/1729220/57714753/staff_1024.jpg",
+					"//d302.paixin.com/thumbs/9880800/150262624/staff_1024.jpg",
+					"http://d302.paixin.com/thumbs/9880800/150263166/staff_1024.jpg",
+					"http://d103.paixin.com/4218696/27071/i/380/depositphotos_270712738-stock-photo-celebrating-meeting-diverse-friends-drinking.jpg",
+					"//d102.paixin.com/3258807/13652/i/380/depositphotos_136521122-stock-photo-attractive-bearded-man-showing-something.jpg",
+				]
+			}
 		},
-		onLoad() {
-			this.TowerSwiper('swiperList');
-			// 初始化towerSwiper 传已有的数组名即可
+		computed: {
+			reverseSum() {
+					// return this.boardcast.reverse();
+			}
 		},
-		methods:{
-			// 初始化towerSwiper
-			TowerSwiper(name) {
-				let list = this[name];
-				for (let i = 0; i < list.length; i++) {
-					list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
-					list[i].mLeft = i - parseInt(list.length / 2)
-				}
-				this.swiperList = list
+		async onLoad() {
+			this.boardcast = await this.$api('boardcast')
+			this.hot_list =  await this.$api('hotList')
+			this.loadModal = false;
+			/* setTimeout(() => {
+				this.loadModal = false;
+			}, 3000) */
+		},
+		onShareAppMessage(res) {
+		    if (res.from === 'button') {// 来自页面内分享按钮  menu 右上角
+		    }
+		    return {
+		      title: '剧本杀',
+		      path: '/pages/index/index'
+		    }
+		},
+		methods: {
+			showAddressModal()
+			{
+				this.visible = !this.visible
 			},
-			navigate(){
-				uni.redirectTo({
-				    url: 'person_number?id=10'
-				});
+			hideModal()
+			{
+				this.visible = false
 			}
 		}
 	}
 </script>
 
-<style>
-
-	 
+<style lang="scss" scoped>
+	@import './index.scss';
+	.badge {
+		color: #FFFFFF;
+		font-size: 20rpx;
+		line-height: 1rem;
+		padding: 10rpx 16rpx 10rpx 10rpx;
+		border-radius: 50rem 50rem 50rem 0;
+		font-family: 'neutra';
+		position: relative;
+		margin-top: -10rpx;
+		margin-left: 6rpx;
+		&.danger {
+			background-color: #d36661;
+		}
+		
+		&.primary {
+			background-color: $color-primary;
+		}
+	}
 </style>

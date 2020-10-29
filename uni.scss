@@ -1,5 +1,3 @@
-/* 颜色变量 */
-
 /* 行为相关颜色 */
 $color-primary: #DBA871;
 $color-success: #4cd964;
@@ -69,6 +67,52 @@ $font-size-subtitle: 36rpx;
 $color-paragraph: #3f536e; // 文章段落颜色
 $font-size-paragraph: 30rpx;
 
+page,
+view,
+scroll-view,
+text,
+image,
+textarea,
+button,
+swiper,
+swiper-item,
+input {
+	box-sizing: border-box;
+}
+
+view[hidden] {
+	display: none !important;
+}
+
+page {
+	background-color: $bg-color;
+	height: 100%;
+	font-size: $font-size-base;
+	color: $text-color-base;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+}
+
+@font-face {
+  font-family: "wenyue";
+  src: url('https://static.heytea.com/taro_trial/v1/font/WenYue-XinQingNianTi-NC-W8_1.otf');
+}
+
+@font-face {
+	font-family: 'neutra';
+	src: url('https://static.heytea.com/taro_trial/v1/font/NeutraTextDemiAlt.otf');
+}
+
+.wenyue-font {
+	font-family: 'wenyue';
+}
+
+.neutra-font {
+	font-family: 'neutra';
+}
 
 button {
 	font-size: $font-size-base;
@@ -112,28 +156,6 @@ button {
 .button-hover[type='primary'][plain] {
 	border: 2rpx solid rgba($color: $color-primary, $alpha: 0.6);
 	color: rgba($color: $color-primary, $alpha: 0.6);
-}
-.align-items-start {
-	align-items: flex-start;
-}
-
-.align-items-end {
-	align-items: flex-end;
-}
-
-.align-items-center {
-	align-items: center;
-}
-
-.align-items-between {
-	align-items: space-between;
-}
-
-.align-items-around {
-	align-items: space-around;
-}
-.d-flex {
-	display: flex;
 }
 
 uni-toast {

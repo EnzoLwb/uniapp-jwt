@@ -1,0 +1,35 @@
+	.search-box {
+		height: 100rpx;
+		padding: 20rpx 30rpx;
+		display: flex;
+		align-items: center;
+		border-bottom: 1rpx solid rgba($color: $border-color, $alpha: 0.6);
+		
+		.search-input {
+			flex: 1;
+			height: 60rpx;
+			padding: 10rpx 20rpx;
+			background-color: #f7f7f7;
+			font-size: $font-size-base;
+			border-radius: 50rem !important;
+			display: flex;
+			align-items: center;
+
+			.search-icon {
+				width: 30rpx;
+				height: 30rpx;
+				margin-right: 10rpx;
+			}
+			
+			input {
+				flex: 1;
+			}
+			
+			.close-icon {
+				width: 30rpx;
+				height: 30rpx;
+				margin-left: 20rpx;
+			}
+		}
+	}
+	

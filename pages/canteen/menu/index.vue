@@ -129,7 +129,7 @@
 			}
 		},
 		computed: {
-			...mapState(['orderType', 'address']),
+			// ...mapState(['orderType', 'address']),
 			productCartNum() {	//计算单个饮品添加到购物车的数量
 				return id => this.cart.reduce((acc, cur) => {
 						if(cur.id === id) {
@@ -149,7 +149,7 @@
 			this.$nextTick(() => this.calcSize())
 		},
 		methods: {
-			...mapMutations(['SET_ORDER_TYPE']),
+/* 			...mapMutations(['SET_ORDER_TYPE']),
 			switchOrderType() {
 				if(this.orderType === 'takein') {
 					uni.navigateTo({
@@ -158,7 +158,7 @@
 				} else {
 					this.SET_ORDER_TYPE('takein')
 				}
-			},
+			}, */
 			handleAddToCart(product) {	//添加到购物车
 				const index = this.cart.findIndex(item => {
 					if(!product.is_single) {

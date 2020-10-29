@@ -1,0 +1,345 @@
+page {
+		max-height: 100%;
+	}
+	.cu-modal{
+		
+			.content {
+				height: auto;
+				padding: 0 10rpx;
+				margin-top: 20rpx;
+				padding-bottom: 170rpx;
+			}
+			
+			.address {
+				width: 100%;
+				display: flex;
+				align-items: center;
+				
+				.info {
+					flex: 1;
+					display: flex;
+					flex-direction: column;
+					margin-right: 20rpx;
+					overflow: hidden;
+					
+					.user-row {
+						font-size: $font-size-lg;
+						font-weight: 500;
+						margin-bottom: 10rpx;
+						text-align: left;
+					}
+					
+					.address-row {
+						display: flex;
+						align-items: center;
+						
+						.is-default {
+							background-color: #faf5ef;
+							font-size: $font-size-extra-sm;
+							color: $color-primary;
+							padding: 4rpx;
+							flex-shrink: 0;
+							margin-right: 6rpx;
+						}
+						
+						.address {
+							font-size: $font-size-base;
+							overflow: hidden;
+							white-space: nowrap;
+							text-overflow: ellipsis;
+						}
+					}
+				}
+				
+				.edit-btn {
+					width: 45rpx;
+					height: 45rpx;
+					margin-right: 20rpx;
+				}
+			}
+			
+		}
+	/* 弹窗结束 */
+	.navbar {
+		height: calc(100rpx + var(--status-bar-height));
+		/* #ifdef H5 */
+		height: 88rpx;
+		/* #endif */
+		display: flex;
+		background-color: #FFFFFF;
+		button{
+			border: none !important;
+		}
+		
+	}
+	
+	.talk-btn {
+		height: 64rpx;
+		// margin-left: 10px;
+		margin-top: 72rpx;
+		/* #ifdef H5 */
+		margin-top: 6px;
+		/* #endif */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: $font-size-medium !important;
+		padding: 0 20rpx;
+		border-radius: 50rem !important;
+		
+		image {
+			width: 40rpx;
+			height: 40rpx;
+			margin-right: $spacing-row-sm;
+		}
+		.right-icon {
+			flex-shrink: 0;
+			width: 40rpx;
+			height: 40rpx;
+		}
+	}
+	
+	.banner-swiper {
+		width: 100%;
+		height: 500rpx;
+		
+		.banner-swiper-item {
+			image {
+				width: 100%;
+			}
+		}
+	}
+	.section-1 {
+		position: relative;
+		background-color: $bg-color-white;
+		margin-top: -60rpx;
+		border-radius: $border-radius-lg;
+		padding: 60rpx 0;
+		display: flex;
+		margin-bottom: 30rpx;
+		box-shadow: $box-shadow;
+		
+		.item {
+			flex: 1;
+			flex-shrink: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			position: relative;
+			
+			&:nth-child(1):after {
+				content: '';
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				width: 2rpx;
+				background-color: $border-color;
+			}
+			
+			image {
+				width: 100rpx;
+				margin-bottom: 20rpx;
+			}
+			
+			.wenyue-font {
+				font-size: 48rpx;
+				margin-bottom: 10rpx;
+			}	
+		}
+	}
+	
+	.content {
+		width: 100%;
+		padding: 0 30rpx;
+		position: relative;
+	}
+	/* 最新剧本 */
+  .xinqiubobao {
+	width: 100%;
+	position: relative;
+	
+		.title {
+			margin: 10rpx 0;
+			font-size: $font-size-lg;
+			font-weight: 500;
+		}
+		
+		.swiper {
+			height: 180rpx;
+			margin-bottom: 10rpx;
+			
+			.swiper-item {
+				
+				.swiper-item-wrapper {
+					display: flex;
+					background-color: $bg-color-white;
+					padding: 16rpx 20rpx;
+					border-radius: $border-radius-base;
+					align-items: center;
+					margin-right: 40rpx;
+					
+					image {
+						width: 130rpx;
+						height: 130rpx;
+						border-radius: 10%;
+						margin-right: 20rpx;
+					}
+					
+					.desc {
+						display: flex;
+						flex-direction: column;
+						
+						.title {
+							font-size: $font-size-medium;
+							margin-top: -10rpx;
+							
+							// font-weight: 500;
+							margin-bottom: 10rpx;
+						}
+						
+						.desc {
+							font-size: 22rpx;
+							color: $text-color-grey;
+							text-overflow: ellipsis;
+							display: -webkit-box;
+							-webkit-box-orient: vertical;
+							-webkit-line-clamp: 3;
+							overflow: hidden;
+						}
+					}
+				}
+			}
+		}
+}
+	/* 最新剧本结束 */
+	/* DM推荐 */
+  .recommend {
+	width: 100%;
+	position: relative;
+	background-color: $bg-color-white;
+	padding: 20rpx 10rpx 10rpx 10rpx;
+	border-radius: $border-radius-lg;
+	margin-bottom: 30rpx;
+		.title {
+			margin: 10rpx 0;
+			margin-bottom: 16rpx;
+			font-size: $font-size-lg;
+			font-weight: 500;
+		}
+		
+		.swiper {
+			height: 320rpx;
+			margin-bottom: 20rpx;
+			padding: 0rpx 10rpx;
+			.swiper-item {
+				width: auto !important;
+				.swiper-item-wrapper {
+					display: flex;
+					background-color: $bg-color-white;
+					// padding: 16rpx 20rpx;
+					border-radius: $border-radius-lg;
+					align-items: center;
+					margin-right: 20rpx;
+					.cu-item{
+						margin: 0rpx !important;
+						.bg-blue{
+							    background-color: #DBA871;
+							    color: white;
+							    opacity: .8;
+							    border-radius: 0rpx 0rpx 0rpx 20rpx;
+						}
+						.cu-bar{
+							min-height: 60rpx;
+							padding: 0rpx 10rpx;
+							font-size: $font-size-sm;
+						}
+					}
+					image {
+						width: 220rpx;
+						height: 320rpx;
+						border-radius: $border-radius-lg;
+						/* margin-right: 20rpx; */
+						
+					}
+
+				}
+			}
+		}
+}
+	/* DM推荐结束 */
+	
+	/* 本店DM开始 */
+	.hostess {
+		width: 100%;
+		position: relative;
+    background-color: $bg-color-white;
+		padding: 20rpx 10rpx;
+		border-radius: $border-radius-lg;
+		margin-bottom: 30rpx;
+			.title {
+				display: flex;padding-left: 4rpx;
+				margin-bottom: 16rpx;
+				font-size: $font-size-lg;
+				font-weight: 500;
+				.right-icon {
+					flex-shrink: 0;
+					width: 40rpx;
+					height: 40rpx;
+					position: absolute;
+					right: 10rpx;
+				}
+			}
+			
+			.swiper {
+				height: 340rpx;
+				// margin-bottom: 20rpx;
+				padding: 0rpx 10rpx;
+				font-size: $font-size-base;
+				.swiper-item {
+					width: auto !important;
+					.kbcs{
+						padding: 10rpx 16rpx;
+					}
+					.swiper-item-wrapper {
+						display: flex;
+						background-color: $bg-color-white;
+						// padding: 16rpx 20rpx;
+						border-radius: $border-radius-lg;
+						align-items: center;
+						margin-right: 20rpx;
+						.cu-item{
+							margin: 0rpx !important;
+							.image {
+								width: 220rpx;
+								height: 300rpx;
+								border-radius: $border-radius-lg;
+								/* margin-right: 20rpx; */
+								
+							}
+							.cu-bar{
+								min-height: 40rpx;
+								padding: 0rpx 10rpx;
+								margin: 10rpx;
+								font-size: $font-size-sm;
+								display: flex;
+								width: 102rpx;
+								border-radius: $border-radius-base;
+								background-color: black;
+								opacity: .5;
+								.hot{
+									width: 30rpx;height:30rpx;max-width: 100%;
+									display: inline-block;
+									position: relative;
+									z-index: 0;
+								}
+							}
+						}
+						
+	
+					}
+				}
+			}
+	}
+		/* 本店DM结束 */
+		

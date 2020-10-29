@@ -1,51 +1,97 @@
 {
 	"pages": [ 
+		//首页
 		{
-			"path": "pages/index/ws",
+			"path": "pages/drama/list",
 			"style": {
-				"navigationBarTitleText": "测试ws"
-			}
-		},
-		{
-			"path": "pages/index/testws",
-			"style": {
-				"navigationBarTitleText": "测试ws"
+				"navigationBarTitleText": "案发现场"
 			}
 		},
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "异想天开Go"
+				"navigationBarTitleText": "首页"
+			}
+		},
+		
+		//首页结束
+		//排行榜开始
+		{
+			"path": "pages/rank/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		//排行榜结束
+		//点菜 小卖部 开始
+		{
+			"path": "pages/canteen/index/index",
+			"style": {
+				"navigationBarTitleText": "案件之外Go"
 			}
 		},
 		{
-			"path" : "pages/menu/index",
+			"path": "pages/canteen/index/ws",
+			"style": {
+				"navigationBarTitleText": "测试ws"
+			}
+		},
+		{
+			"path" : "pages/canteen/menu/index",
 			"style" : {}
 		},
 		{
-			"path" : "pages/order/list",
+			"path" : "pages/canteen/order/list",
 			"style" : {}
 		},
 		{
-			"path": "pages/index/person_number",
+			"path": "pages/canteen/index/person_number",
 			"style": {
 				"navigationBarTitleText": "选择人数"
 			}
 		},
+		//点菜 小卖部 结束
+		//个人中心开始
 		{
 			"path": "pages/mine/index",
 			"style": {
 				"navigationBarTitleText": "个人中心"
 			}
 		}
-
+		//个人中心结束
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationStyle": "custom",
-		"navigationBarTitleText": "实时点餐",
+		"navigationBarTitleText": "你是局儿",
 		"navigationBarBackgroundColor": "#92C3F3",
 		"backgroundColor": "#F8F8F8"
-	}
+	},
+	"tabBar": {
+			"color": "#7A7E83",
+			"selectedColor": "#343434",
+			"borderStyle": "black",
+			"backgroundColor": "#F8F8F8",
+			"list": [
+				{
+					"pagePath": "pages/index/index",
+					"selectedIconPath": "static/images/tarbar/index_selected.png",
+					"iconPath": "static/images/tarbar/index.png",
+					"text": "受理立案"
+				},
+				{
+					"pagePath": "pages/rank/index",
+					"selectedIconPath": "static/images/tarbar/rank_selected.png",
+					"iconPath": "static/images/tarbar/rank.png",
+					"text": "唐人街排行榜"
+				},
+				{
+					"pagePath": "pages/mine/index",
+					"selectedIconPath": "static/images/tarbar/my_selected.png",
+					"iconPath": "static/images/tarbar/my.png",
+					"text": "侦探档案"
+				}
+			]
+		}
 	
 }

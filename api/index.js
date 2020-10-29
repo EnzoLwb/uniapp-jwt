@@ -2,12 +2,16 @@ import categories from './categories.js'
 import notices from './notices.js'
 import hotSearch from './hotSearch.js'
 import historySearch from './historySearch.js'
+import boardcast from './boardcast.js'
+import hotList from './hotList.js'
 
 
 const json = {
 	categories,
 	notices,
 	historySearch,
+	boardcast,
+	hotList,
 	hotSearch,
 }
 
