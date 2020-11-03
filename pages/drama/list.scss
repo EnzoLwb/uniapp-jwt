@@ -1,35 +1,172 @@
-	.search-box {
-		height: 100rpx;
-		padding: 20rpx 30rpx;
-		display: flex;
-		align-items: center;
-		border-bottom: 1rpx solid rgba($color: $border-color, $alpha: 0.6);
-		
-		.search-input {
-			flex: 1;
-			height: 60rpx;
-			padding: 10rpx 20rpx;
-			background-color: #f7f7f7;
-			font-size: $font-size-base;
-			border-radius: 50rem !important;
+.container{
+	.header{
+		background-color: white;
+		position: fixed;
+		/* top: 0; */
+		width: 100%;
+		height: 230rpx;
+		z-index: 999;
+		.search-box {
+			height: 80rpx;
+			padding: 0rpx 30rpx;
 			display: flex;
 			align-items: center;
-
-			.search-icon {
-				width: 30rpx;
-				height: 30rpx;
-				margin-right: 10rpx;
+			/* border-bottom: 1rpx solid rgba($color: $border-color, $alpha: 0.6); */
+			.ml-30{
+				font-size: $font-size-medium;
 			}
-			
-			input {
+			.search-input {
 				flex: 1;
-			}
-			
-			.close-icon {
-				width: 30rpx;
-				height: 30rpx;
-				margin-left: 20rpx;
+				height: 60rpx;
+				padding: 10rpx 20rpx;
+				background-color: #f7f7f7;
+				font-size: $font-size-base;
+				border-radius: 50rem !important;
+				display: flex;
+				align-items: center;
+		
+				.search-icon {
+					width: 30rpx;
+					height: 30rpx;
+					margin-right: 10rpx;
+				}
+				
+				input {
+					flex: 1;
+					font-size: $font-size-base;
+				
+				}
+				
+				.close-icon {
+					width: 30rpx;
+					height: 30rpx;
+					margin-left: 20rpx;
+				}
 			}
 		}
+		.nav .cu-item{
+			height: 70rpx;
+			line-height: 70rpx;
+			font-size: $font-size-xl;
+			margin: 0 14rpx;
+			padding: 0 18rpx;
+		}
+		.nav .cu-item.cur{
+			border-bottom: 8rpx solid;
+		}
 	}
-	
+	.list {
+		padding-top: 230rpx;
+		.cu-card{
+			
+			.cu-item{
+				  margin: 10rpx 20rpx;
+					padding-bottom: 20rpx;
+				.content{
+					padding: 30rpx 10rpx 0rpx 20rpx;
+					.img_tag{
+						position: relative;    
+						overflow: hidden;
+						margin-right:30rpx;
+						.CornerText{
+								position: absolute;
+								top: 10rpx;
+								right: 10rpx;
+								width: 130rpx;
+								height: 30rpx;
+								line-height: 30rpx;
+								font-size: 22rpx;
+								text-align: center;
+								letter-spacing: .05em;
+								text-indent: .05em;
+								font-weight: 400;
+								color: #fff;
+								background: #fe6270;
+								z-index: 2;
+								-webkit-transform: rotate(45deg) translate(50%,90%);
+								transform: rotate(45deg) translate(50%,90%);
+								-webkit-transform-origin: top right;
+								transform-origin: top right;
+						}
+						.image{
+							width: 200rpx;
+							height: 260rpx;
+							/* margin-right: 30rpx; */
+							-webkit-border-radius: 3px;
+							border-radius: 6rpx;
+						}
+					}
+					.desc{
+						.cu-tag.sm{
+							padding: 20rpx 12rpx;
+							height: 40rpx;
+							font-size: $font-size-sm;
+							margin-bottom: 10rpx;
+						}
+							.finish{
+								position: absolute;
+								top: -10rpx;
+								right: 20rpx;
+								font-size: 20rpx;
+								z-index: 100;
+								height: 48rpx;
+								color: black;
+								image{
+									height: 48rpx;
+									width: 48rpx;
+								}
+							}
+							.guanzhu{
+								position: absolute;
+								bottom: 0rpx;
+								right: 20rpx;
+								font-size: 20rpx;
+								z-index: 100;
+								height: 48rpx;
+								image{
+									height: 48rpx;
+									width: 48rpx;
+								}
+							}
+							.detail{
+								color: grey;
+								font-size: $font-size-base;
+								font-family: 'neutra';
+							}
+							.text-content{
+								height:1.2em;
+								line-height: 1.2;
+								font-size: $font-size-extra-lg;
+								color: $text-color-base;
+								max-width: 90%;
+								overflow: hidden;
+								white-space: nowrap;
+								text-overflow: ellipsis;
+							}
+						}
+					
+					
+				}
+			}
+		}
+			
+	}	
+}
+	.drawer_content{
+		padding-top: 150rpx;
+		// padding-left: 20rpx;
+		.grid{
+			padding: 10rpx;
+			.text-center{
+				margin-right: 10rpx;
+			}
+			b{
+				font-weight: bold;
+			}
+		}
+		.type{
+			font-size: $font-size-extra-lg;
+			font-family: 'wenyue';
+			padding: 20rpx 0rpx;
+		}
+	}

@@ -15,7 +15,7 @@
 		<view class="content">
 			<!-- 剧本列表 && 组局开车 begin -->
 			<view class="section-1">
-				<navigator class="item" open-type="switchTab" url="/pages/index/index" hover-class="none">
+				<navigator class="item" open-type="navigate" url="/pages/drama/list" hover-class="none">
 					<image src="/static/images/home/book.png" mode="widthFix"></image>
 					<view class="wenyue-font">剧本列表</view>
 					<view class="text-color-assist">开始受理立案</view>
@@ -103,7 +103,7 @@
 		<!-- 弹窗 -->
 		<view class="cu-modal" :class="visible==true?'show':''" @tap="hideModal" >
 			<view class="cu-dialog" @tap.stop="">
-				<view class="content" >
+				<view class="content"  style="background-color: white;">
 					<list-cell v-for="(address, index) in addresses" :key="index" :line-left="false">
 						<view class="address">
 							<view class="info">

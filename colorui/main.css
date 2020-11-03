@@ -3406,7 +3406,9 @@ scroll-view.cu-steps .cu-item {
 	background-color: #DBA871;
 	color: #ffffff;
 }
-
+.line-gold,.text-gold {
+	color: #DBA871;
+}
 .bg-red {
 	background-color: #e54d42;
 	color: #ffffff;
@@ -3848,7 +3850,9 @@ scroll-view.cu-steps .cu-item {
 .lines-olive {
 	color: #8dc63f;
 }
-
+.text-gold {
+	color: #DBA871;
+}
 .text-green,
 .line-green,
 .lines-green {

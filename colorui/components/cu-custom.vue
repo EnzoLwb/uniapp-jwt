@@ -7,7 +7,7 @@
 					<slot name="backText"></slot>
 				</view>
 				<view class="content" :style="[{top:StatusBar + 'px'}]">
-					<slot name="content"></slot>
+					<slot  name="content"></slot>
 				</view>
 				<slot name="right"></slot>
 			</view>

@@ -21,7 +21,7 @@
 				</swiper>
 				<view class="more">
 					<text>更多</text>
-					<image src="/static/images/common/gray_arrow_down.png" class="down-icon"></image>
+					<image src="/static/images/common/down.png" class="down-icon"></image>
 				</view>
 			</view>
 		</view>

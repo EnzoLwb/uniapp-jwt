@@ -4,10 +4,11 @@ import hotSearch from './hotSearch.js'
 import historySearch from './historySearch.js'
 import boardcast from './boardcast.js'
 import hotList from './hotList.js'
-
+import drama from './drama.js'
 
 const json = {
 	categories,
+	drama,
 	notices,
 	historySearch,
 	boardcast,

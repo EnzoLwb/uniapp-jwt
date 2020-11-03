@@ -2,9 +2,9 @@
 	"pages": [ 
 		//首页
 		{
-			"path": "pages/drama/list",
+			"path": "pages/drama/index",
 			"style": {
-				"navigationBarTitleText": "案发现场"
+				"navigationBarTitleText": "剧本详情"
 			}
 		},
 		{
@@ -13,7 +13,12 @@
 				"navigationBarTitleText": "首页"
 			}
 		},
-		
+		{
+			"path": "pages/drama/list",
+			"style": {
+				"navigationBarTitleText": "案发现场"
+			}
+		},
 		//首页结束
 		//排行榜开始
 		{

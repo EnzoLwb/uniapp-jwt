@@ -86,7 +86,7 @@ page {
 		font-size: $font-size-medium !important;
 		padding: 0 20rpx;
 		border-radius: 50rem !important;
-		
+		color: #272727;
 		image {
 			width: 40rpx;
 			height: 40rpx;
@@ -245,7 +245,7 @@ page {
 						margin: 0rpx !important;
 						.bg-blue{
 							    background-color: #DBA871;
-							    color: white;
+							    color: black;
 							    opacity: .8;
 							    border-radius: 0rpx 0rpx 0rpx 20rpx;
 						}

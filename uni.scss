@@ -30,6 +30,7 @@ $font-size-extra-sm: 22rpx;
 $font-size-sm: 24rpx;
 $font-size-base: 26rpx;
 $font-size-medium: 28rpx;
+$font-size-xl: 30rpx;
 $font-size-lg: 32rpx;
 $font-size-extra-lg: 36rpx;
 
@@ -554,7 +555,9 @@ uni-modal .uni-modal {
 .mb-50 {
 	margin-bottom: 50rpx;
 }
-
+.mt-10 {
+	margin-top: 10rpx;
+}
 .mt-20 {
 	margin-top: 20rpx;
 }
@@ -599,6 +602,10 @@ uni-modal .uni-modal {
 	margin-right: 40rpx;
 }
 
+.pl-10 {
+	padding-left: 10rpx;
+}
+
 .pl-30 {
 	padding-left: 30rpx;
 }
@@ -629,4 +636,18 @@ uni-modal .uni-modal {
 
 .opacity-6 {
 	opacity: 0.6;
+}
+
+.flex-col{
+	display: flex;
+	flex-direction: column
+}
+.flex-row{
+	display: flex;
+	flex-direction: row
+}
+.shenglue{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;//控制行数时这个不显示
 }
