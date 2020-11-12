@@ -1,6 +1,6 @@
 <template>
 <view>
-	<cu-custom bgColor="bg-white" :isBack="true"><block slot="content">剧本库</block></cu-custom>
+	<cu-custom bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">剧本库</block></cu-custom>
 	<view class="container">
 		<view class="header">
 			<view class="search-box">
@@ -27,52 +27,11 @@
 		</view>
 		<!-- 搜索结束 -->
 		<!-- 列表开始 -->
-		<view class="list">
-			<navigator class="product" v-for="(item, index) in drama" :key="index" 
-			open-type="navigate" hover-class="none" url="/pages/drama/detail">
-				<view class="cu-card article">
-						<view class="cu-item shadow">
-							<view class="content" >
-								<view class="img_tag">
-									<image class="image" :src="item.cover" mode="aspectFill"></image>
-									<view class="CornerText" v-if="item.corner">
-										{{item.corner}}
-									</view>
-								</view>
-								
-								<view class="desc" style="position: relative;">
-									<view class="text-content wenyue-font">{{item.name}}</view>
-									<view class="detail">
-										发行时间：{{item.fx_time}}
-									</view>
-									<view class="detail">
-										剧本难度：{{item.difficulty}}
-									</view>
-									<view class="detail">
-										剧本形式：{{item.layout}}
-									</view>
-									<view style="max-width: 85%;">
-										<view class="cu-tag  light sm round"
-										 :class="key %2==0?'bg-red':'bg-green'"
-										 v-for=" (tag ,key) in item.tags" :key="key " >{{tag}}</view>
-									
-									</view>
-									<view class="finish" v-if="item.played"><image src="/static/images/drama/finished.png"></image></view>
-									<view class="guanzhu" v-if="item.guanzhu"><image src="/static/images/drama/followed.png"></image></view>
-									<view class="guanzhu" v-if="!item.guanzhu"><image src="/static/images/drama/follow.png"></image></view>
-								</view>
-								
-							</view>
-
-						</view>
-					</view>
-			</navigator>
-		</view>
+		<drama-list :dramas="drama" :type="type"></drama-list>
 		<!-- 列表 end -->
 		<nomore text="已经到底了" visible></nomore>
 	</view>
 	<!-- 抽屉 （筛选列表）-->
-	
 	<uni-drawer :visible="drawerShow" mode="right" @close="hideDrawer()">
 		<scroll-view scroll-y class="drawer">
 			<view class="wrapper">
@@ -125,9 +84,10 @@
 <script>
 	import nomore from '@/components/nomore/nomore.vue'
 	import uniDrawer from '@/components/uni-drawer/uni-drawer.vue'
+	import DramaList from './components/drama-list.vue'
 	export default {
 		components: {
-			nomore,uniDrawer
+			nomore,uniDrawer,DramaList
 		},
 		data() {
 			return {
@@ -143,6 +103,7 @@
 				dramaFormSelected:null,
 				dramaStyleSelected:null,
 				dramaOpenSelected:null,
+				type:null,//跳转链接 如果从组局createGroup跳转来的应该显示预约按钮
 				personNumber:["全部","4人","5人","6人","7人","8人","9人","10人","10+"],
 				dramaType:["全部","科幻","民国","情感","校园","古装","国外","神话","现代",],
 				dramaForm:["盒装","城限","独家","实景","线上","微剧本",],
@@ -150,7 +111,12 @@
 				dramaOpen:["封闭式","半封闭式","开放式"],
 			}
 		},
-		async onLoad(){
+		async onLoad(option){
+			//获取type
+			if(option.type){
+				console.log(option)
+				this.type = option.type
+			}
 			this.drama = await this.$api("drama")
 		},
 		onShareAppMessage(res) {

@@ -1,0 +1,84 @@
+	.change_detail{
+		background-color: white;
+		margin: 30rpx 0rpx 20rpx 0rpx;
+		.title{
+			padding: 40rpx 26rpx;
+			font-size: $font-size-xl;
+			font-weight: bold;
+		}
+		.cu-btn{
+			width: 85%;
+			margin:0rpx auto;
+			border-radius: 30rpx;
+			align-items: center;
+			font-size: 30rpx;
+			letter-spacing: 6rpx;
+		}
+	}
+	.tips-box {
+			z-index: 10;
+			height: 20vh;
+			border-radius: 30rpx 30rpx 0 0;
+			box-shadow: 0 0 20rpx 0 rgba($color: #333, $alpha: 0.1);
+			display: flex;
+			flex-direction: column;
+			/* justify-content: center;
+			align-items: center; */
+			background-color: $bg-color-white;
+			flex-shrink: 0;
+			padding: 40rpx 30rpx;
+			.tips_title{
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+			}
+			.tips{
+				letter-spacing: 4rpx;
+				text-indent: 1em;
+				margin-top: 20rpx;
+			}
+			.status-icon {
+				width: 60rpx;
+				height: 60rpx;
+				// margin-bottom: 30rpx;
+			}
+		}
+	
+	.footer {
+		height: 100rpx;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		background-color: #FFFFFF;
+		z-index: 10;
+		border-top: 1rpx solid rgba($color: $border-color, $alpha: 0.8);
+		
+		.bottom {
+			height: 100rpx;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			
+			.follow{
+				display: flex;
+				justify-content: center;
+				    width: 30%;
+				image{
+					width:60rpx;
+					height:60rpx;
+					
+				}
+			}
+
+			button {
+				height: 100%;
+				font-size: $font-size-lg;
+				border-radius: 0 !important;
+				line-height: 100rpx;
+				padding: 0 200rpx;
+			}
+		}
+	}
+	

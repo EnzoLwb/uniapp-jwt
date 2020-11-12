@@ -1,0 +1,92 @@
+.container{
+		font-size: $font-size-base;
+		.addBtn{
+			position:fixed;
+			right: 40rpx;
+			bottom: 100rpx;
+			z-index: 10;
+			image{
+				width: 80rpx;
+				height: 80rpx;
+			}
+		}
+		.no-group{
+			margin-bottom: 40rpx;
+			image{
+				width:800rpx;
+				height:480rpx;
+			}
+			.tips{
+				text-align: center;font-size: 30rpx;margin-bottom: 40rpx;
+			}
+			button{
+				font-weight: bold;margin: 0rpx auto;width: 50%;background-color: #DBA871;color:white;font-size: 30rpx;border-radius: 6rpx;
+			}
+		}
+
+		.fenjiexian{
+			text-align: center;color: grey;margin: 20rpx;letter-spacing:14rpx;font-weight: 600;
+			.normal{
+				letter-spacing: normal;
+			}
+		}
+		.top-screen{
+			margin:20rpx 0rpx;
+			padding:20rpx 30rpx;
+			.icon{
+				font-size: 44rpx;
+				margin-right: 10rpx;
+			}
+		}
+		.list {
+			// padding-top: 230rpx;
+			.cu-card{
+				.cu-item{
+					  margin: 10rpx 20rpx;
+						padding-bottom: 20rpx;
+					.content{
+						padding: 30rpx 10rpx 0rpx 20rpx;
+						.img_tag{
+							position: relative;    
+							overflow: hidden;
+							margin-right:30rpx;
+							.image{
+								width: 200rpx;
+								height: 260rpx;
+								/* margin-right: 30rpx; */
+								-webkit-border-radius: 3px;
+								border-radius: 20rpx;
+							}
+						}
+						.desc{
+							.detail{
+									color: grey;
+									font-size: $font-size-base;
+									font-family: 'neutra';
+								}
+								.text-content{
+									height:1.2em;
+									line-height: 1.2;
+									font-size: $font-size-extra-lg;
+									color: $text-color-base;
+									max-width: 90%;
+									overflow: hidden;
+									white-space: nowrap;
+									text-overflow: ellipsis;
+								}
+							}
+							.btn{
+									width:30%;
+									font-size: 24rpx;
+									color: white;
+									background-color: #DBA871;
+									border-radius: 40rpx;
+									
+							}
+						
+					}
+				}
+			}
+				
+		}	
+	}

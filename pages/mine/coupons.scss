@@ -1,0 +1,127 @@
+.cu-modal{
+	.content{
+		background-color: white;
+		
+		padding: 0rpx 10rpx;padding-bottom: 60rpx;
+		.header{
+			font-size: $font-size-extra-lg;
+			text-align: center;
+			margin: 0rpx 40rpx 20rpx 40rpx;
+			padding-bottom: 30rpx;
+			border-bottom: 1px solid grey;
+			padding-top: 40rpx;
+		}
+		.row {
+			display: flex;
+			align-items: baseline;
+			
+			.label {
+				width: 120rpx;
+				font-size: $font-size-medium;
+				margin-right: 20rpx;
+			}
+			
+			.text {
+				flex: 1;text-align: left;
+				font-size: $font-size-base;
+				color: $text-color-assist;
+			}		
+		}
+	}
+}
+.cur{
+	font-weight: bold;
+	font-size: 30rpx;
+}
+.coupon_list{
+	height:  calc(100vh - 80rpx - 120rpx );
+	padding-top: 30rpx;
+	background-color: #F1F8FA;
+	.wrapper{
+		padding: 0rpx 40rpx;
+		display: flex;
+		flex-direction: column;
+		.coupon{
+			display: flex;
+			flex-direction: column;
+			background-color: white;
+			margin-bottom: 30rpx;
+			padding: 0rpx 30rpx;
+			border-radius: 6rpx;
+			position: relative;
+			.detail{
+				padding: 40rpx 0;
+				position: relative;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				.left{
+					font-size: 32rpx;
+					display: flex;
+					flex-direction: column;
+					.desc{
+						color: grey;
+						padding: 20rpx 0rpx;
+						font-size: 24rpx;
+					}
+				}
+				.right{
+					font-size: 42rpx;
+					float:right;
+					padding: 20rpx 0rpx;
+					text{
+						font-size: 28rpx;
+						margin-left: 10rpx;
+					}
+				}
+			}
+			.show{
+				height: 68rpx;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				padding-bottom: 10rpx;
+				.date{
+					color: grey;
+					font-size: 24rpx;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				.href{
+					color: grey;
+					font-size: 24rpx;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					image {
+						width: 40rpx;
+						height: 40rpx;
+						margin-left: 10rpx;
+					}
+				}
+			}
+			&::after{
+				content: "";
+				position: absolute;
+				background-color: #F1F8FA;
+				width: 30rpx;
+				height: 30rpx;
+				bottom: 65rpx;
+				right: -15rpx;
+				border-radius: 100%;
+			}
+			&::before{
+				content: "";
+				position: absolute;
+				background-color: #F1F8FA;
+				width: 30rpx;
+				height: 30rpx;
+				bottom: 65rpx;
+				left: -15rpx;
+				border-radius: 100%;
+			}
+		}
+	}
+}
+

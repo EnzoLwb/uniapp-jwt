@@ -9,18 +9,18 @@
 		</view>
 		<swiper class="banner-swiper" circular :autoplay="autoplay" :interval="5000" :duration="1000">
 			<swiper-item class="banner-swiper-item" v-for="(item, index) in swipers" :key="index">
-				<image :src="item" mode="widthFix"  style="max-height: 300px;"></image>
+				<image :src="item" mode="widthFix"  lazy-load style="max-height: 300px;"></image>
 			</swiper-item>
 		</swiper>
 		<view class="content">
 			<!-- 剧本列表 && 组局开车 begin -->
 			<view class="section-1">
 				<navigator class="item" open-type="navigate" url="/pages/drama/list" hover-class="none">
-					<image src="/static/images/home/book.png" mode="widthFix"></image>
+					<image src="/static/images/home/book.png" lazy-load mode="widthFix"></image>
 					<view class="wenyue-font">剧本列表</view>
 					<view class="text-color-assist">开始受理立案</view>
 				</navigator>
-				<navigator class="item" open-type="navigate" url="/pages/addresses/addresses" hover-class="none">
+				<navigator class="item" open-type="navigate" url="/pages/group/list" hover-class="none">
 					<image src="/static/images/home/chedui.png" mode="widthFix"></image>
 					<view class="wenyue-font">组局开车</view>
 					<view class="text-color-assist">就差你啦~大侦探</view>
@@ -38,10 +38,10 @@
 				<swiper class="swiper" next-margin="80rpx" :autoplay="false" :interval="5000" :duration="500" circular>
 					<swiper-item class="swiper-item" v-for="(item, index) in boardcast" :key="index">
 						<view class="swiper-item-wrapper">
-							<image :src="item.coverPic" class="img"></image>
+							<image :src="item.coverPic" lazy-load class="img"></image>
 							<view class="desc" style="width: 600rpx;">
 								<view class="title wenyue-font">{{ item.title }}</view>
-								<view class="desc" style="	">{{ item.subtitle }}</view>
+								<view class="desc" >{{ item.subtitle }}</view>
 							</view>
 						</view>
 					</swiper-item>
@@ -59,14 +59,14 @@
 				<swiper class="swiper" next-margin="20rpx" :autoplay="autoplay" :interval="5000" :duration="500" circular>
 					<swiper-item class="swiper-item" v-for="(item, index) in hot_list" :key="index">
 						<view class="swiper-item-wrapper cu-card case" >
-							<view class="cu-item shadow">
+							<navigator class="cu-item shadow" url="/pages/drama/index" hover-class="none">
 								<view class="image">
-									<image :src="item.coverPic" 
+									<image :src="item.coverPic" lazy-load
 									 ></image>
 									<view class="cu-tag bg-blue">{{item.title}}</view>
 									<view class="cu-bar bg-shadeBottom"> <text class="text-cut">{{item.recommend_reason}}</text></view>
 								</view>
-							</view>							
+							</navigator>							
 						</view>
 					</swiper-item>
 				</swiper>
@@ -83,7 +83,7 @@
 				</view>
 				<swiper class="swiper" next-margin="40rpx" :autoplay="autoplay" :interval="5000" :duration="500">
 					<swiper-item class="swiper-item" v-for="(item, index) in dm_list" :key="index">
-						<view class="swiper-item-wrapper cu-card case" >
+						<navigator class="swiper-item-wrapper cu-card case" hover-class="none" url="/pages/dm/index">
 							<view class="cu-item shadow">
 								<view class="image">
 									<image  class="image" :src="item.coverPic" ></image>
@@ -94,7 +94,7 @@
 								</view>
 								<view class="neutra-font kbcs">开本次数：34</view>
 							</view>
-						</view>
+						</navigator>
 					</swiper-item>
 				</swiper>
 			</view>

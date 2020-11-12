@@ -2,57 +2,7 @@
 	<view class="container">
 		<cu-custom bgColor="bg-white" :isBack="true"><block slot="content">剧本详情</block></cu-custom>
 		<!-- 封面标题标签人数价格 分享 -->
-		<view class="top">
-			<view class="top_top p-30 flex-row">
-				<view class="coupon">领券</view>
-				<image class="img" 
-				src="https://www.myanshi.cn/wp-content/uploads/2020/10/1603674861-af5cdd01e11fa19.png" mode="widthFix"></image>
-				<view class="right flex-col">
-					<view class="title mt-10   mb-10 wenyue-font">
-						五十世纪的
-					</view>
-					<view class="tags mt-20 flex-row font-weight-bold" >
-						<view class="pl-10">仙侠</view>
-						<view class="pl-10">古装</view><view class="pl-10">欢乐</view><view class="pl-10">情感</view>
-					</view>
-					<view class="type mt-20 flex-row font-weight-bold" >
-						<view class="pl-10 mt8">开放</view>
-						<view class="pl-30 mt8">8人</view>
-						<view class="ml-30 cu-tag">5男3女</view>
-					</view>
-					<view class="price mt-20">
-						￥68/位
-					</view>
-				</view>
-			</view>
-			<!-- 发行时间 组局次数 发行工作室 -->
-			<view class="top_bottom flex-row">
-				<view class="block">
-					<view class="top shenglue">
-						2018-12-02
-					</view>
-					<view class="bottom">
-						发行时间
-					</view>
-				</view>
-				<view class="block">
-					<view class="top">
-						9
-					</view>
-					<view class="bottom">
-						组局次数
-					</view>
-				</view>
-				<view class="block" style="border-right: none">
-					<view class="top shenglue">
-						浩天工作室
-					</view>
-					<view class="bottom">
-						发行商
-					</view>
-				</view>
-			</view>
-		</view>
+		<drama-top></drama-top>
 		<!-- 简介 -->
 		<view class="desc">
 			<view class="title">
@@ -124,9 +74,10 @@
 </template>
 
 <script>
+	import DramaTop from './components/drama-index.vue'
 	export default{
 		components: {
-			
+			DramaTop
 		},
 		data(){
 			return{

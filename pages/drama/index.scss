@@ -20,75 +20,6 @@
 	}
 }
 .container{
-	.top{
-		background-color: white;
-		.top_top{
-				position: relative;
-			.coupon{
-				height: 50rpx;
-				line-height: 50rpx;
-				width: 90rpx;
-				border-radius: 30rpx 0rpx 0rpx 30rpx;
-				position: absolute;
-				right: 0;
-				bottom: 40rpx;
-				padding-left: 20rpx;
-				color: #DBA871;
-				background-color: black;
-			}
-			.img{
-				width: 190rpx;
-				min-height: 250rpx;
-				max-height: 400rpx;
-				border-radius: $border-radius-base;
-			}
-			.right{
-				padding: 10rpx 30rpx;
-				font-size: $font-size-base;
-				.title{
-					font-size: $font-size-extra-lg;
-				}
-				.type{
-					.cu-tag{
-						height: 38rpx;
-						font-weight: normal;
-						border-radius: $border-radius-base;
-					}
-					.mt8{
-						margin-top: 4rpx;
-					}
-				}
-				.price{
-					font-family: neutra;
-					font-size:$font-size-lg;
-					color: $color-primary;
-				}
-			}
-		}
-		
-		.top_bottom{
-			display: flex;
-			flex-direction: row;
-			font-size: $font-size-base;
-			padding: 30rpx 0rpx;
-			.block{
-				display: flex;
-				flex-direction: column;
-				width: 33%;
-				padding: 0rpx 40rpx;
-				text-align: center;
-				border-right: 1px solid #cdcdcd;
-				.top{
-					font-weight: bold;
-					font-size: $font-size-medium;
-				}
-				.bottom{
-					color: grey;
-					margin-top: 20rpx;
-				}
-			}
-		}
-	}
 	.desc{
 		margin-top: 20rpx;
 		padding: 30rpx 30rpx 10rpx 30rpx;
@@ -135,13 +66,14 @@
 								}
 								image {
 									width: 200rpx;
-									border-radius: 10%;
+									border-radius: $border-radius-lg;
 								}
 						}
 					}
 			}
 		}
 	}
+	
 	.guessyoulike{
 		margin-top: 20rpx;
 		padding: 30rpx 30rpx 100rpx 30rpx;

@@ -1,12 +1,25 @@
 {
 	"pages": [ 
-		//首页
+		//组局
 		{
-			"path": "pages/drama/index",
+			"path": "pages/group/index",
 			"style": {
-				"navigationBarTitleText": "剧本详情"
+				"navigationBarTitleText": "组局详情"
 			}
 		},
+		{
+			"path": "pages/group/create",
+			"style": {
+				"navigationBarTitleText": "发起组局"
+			}
+		},
+		{
+			"path": "pages/group/list",
+			"style": {
+				"navigationBarTitleText": "组局列表"
+			}
+		},
+		//首页
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -17,6 +30,18 @@
 			"path": "pages/drama/list",
 			"style": {
 				"navigationBarTitleText": "案发现场"
+			}
+		},
+		{
+			"path": "pages/drama/index",
+			"style": {
+				"navigationBarTitleText": "剧本详情"
+			}
+		},
+		{
+			"path": "pages/dm/index",
+			"style": {
+				"navigationBarTitleText": "主持人详情"
 			}
 		},
 		//首页结束
@@ -61,6 +86,12 @@
 			"path": "pages/mine/index",
 			"style": {
 				"navigationBarTitleText": "个人中心"
+			}
+		},
+		{
+			"path": "pages/mine/coupons",
+			"style": {
+				"navigationBarTitleText": "优惠券"
 			}
 		}
 		//个人中心结束

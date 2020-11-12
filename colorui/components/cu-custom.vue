@@ -5,6 +5,7 @@
 				<view class="action" @tap="BackPage" v-if="isBack">
 					<text class="cuIcon-back"></text>
 					<slot name="backText"></slot>
+					<text class="cuIcon-home" v-if="isHome" @tap="BackHome"></text>
 				</view>
 				<view class="content" :style="[{top:StatusBar + 'px'}]">
 					<slot  name="content"></slot>
@@ -45,6 +46,10 @@
 				type: [Boolean, String],
 				default: false
 			},
+			isHome: {
+				type: [Boolean, String],
+				default: true
+			},
 			bgImage: {
 				type: String,
 				default: ''
@@ -55,7 +60,12 @@
 				uni.navigateBack({
 					delta: 1
 				});
-			}
+			},
+			BackHome() {
+				uni.switchTab({
+				    url: '/pages/index/index'
+				});
+			},
 		}
 	}
 </script>

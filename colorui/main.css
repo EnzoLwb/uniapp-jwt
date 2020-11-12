@@ -3360,7 +3360,7 @@ scroll-view.cu-steps .cu-item {
 
 .line-blue::after,
 .lines-blue::after {
-	border-color: #0081ff;
+	border-color: #03a9f4;
 }
 
 .line-purple::after,
@@ -3375,7 +3375,7 @@ scroll-view.cu-steps .cu-item {
 
 .line-pink::after,
 .lines-pink::after {
-	border-color: #e03997;
+	border-color: pink;
 }
 
 .line-brown::after,
@@ -3440,7 +3440,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .bg-blue {
-	background-color: #0081ff;
+	background-color: #03a9f4;
 	color: #ffffff;
 }
 
@@ -3455,7 +3455,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .bg-pink {
-	background-color: #e03997;
+	background-color: pink;
 	color: #ffffff;
 }
 
@@ -3525,7 +3525,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .bg-blue.light {
-	color: #0081ff;
+	color: #03a9f4;
 	background-color: #cce6ff;
 }
 
@@ -3540,7 +3540,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .bg-pink.light {
-	color: #e03997;
+	color: pink;
 	background-color: #f9d7ea;
 }
 
@@ -3868,7 +3868,7 @@ scroll-view.cu-steps .cu-item {
 .text-blue,
 .line-blue,
 .lines-blue {
-	color: #0081ff;
+	color: #03a9f4;
 }
 
 .text-purple,
@@ -3886,7 +3886,7 @@ scroll-view.cu-steps .cu-item {
 .text-pink,
 .line-pink,
 .lines-pink {
-	color: #e03997;
+	color: pink;
 }
 
 .text-brown,
