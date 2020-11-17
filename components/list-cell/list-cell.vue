@@ -1,6 +1,6 @@
 <template>
 	<view
-		class="tui-cell-class tui-list-cell"
+		class="tui-cell-class tui-list-cell shadow"
 		:class="{'tui-cell-last': last, 'tui-line-left': lineLeft, 'tui-line-right': lineRight, 'tui-radius': radius }"
 		:hover-class="hover ? 'tui-cell-hover' : ''"
 		:style="{ background: bgcolor, fontSize: size + 'rpx', color: color, padding: padding}"
@@ -94,7 +94,7 @@ export default {
 .tui-list-cell::after {
 	content: '';
 	position: absolute;
-	border-bottom: 1rpx solid rgba($color: $border-color, $alpha: 0.3);
+	// border-bottom: 1rpx solid rgba($color: $border-color, $alpha: 0.3);
 	bottom: 0;
 	right: 0;
 	left: 0;

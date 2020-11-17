@@ -77,7 +77,6 @@
 				:hover-stay-time="70">确认</button>	
 		</view>
 	</uni-drawer>
-		
 </view>
 </template>
 
@@ -183,8 +182,4 @@
 			padding: 10rpx 0rpx 20rpx 30rpx;
 		}
 	}
-
-
-	
-
 </style>

@@ -21,7 +21,7 @@
 				</scroll-view>
 				<!-- 列表开始 -->
 				<scroll-view scroll-y="true" class="drama_list">
-					<drama-list :dramas="drama" v-show="TabCur == 0" class="dramaList"></drama-list>
+					<drama-list :dramas="drama" v-show="TabCur == 0" padTop=0 class="dramaList"></drama-list>
 					<view v-show="TabCur == 1">
 						<view class="review">
 							<view class="score">10.0</view>

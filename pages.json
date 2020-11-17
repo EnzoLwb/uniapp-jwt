@@ -1,5 +1,13 @@
 {
 	"pages": [ 
+
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+
 		//组局
 		{
 			"path": "pages/group/index",
@@ -20,12 +28,7 @@
 			}
 		},
 		//首页
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},
+
 		{
 			"path": "pages/drama/list",
 			"style": {
@@ -82,6 +85,30 @@
 		},
 		//点菜 小卖部 结束
 		//个人中心开始
+		{
+			"path": "pages/mine/follow",
+			"style": {
+				"navigationBarTitleText": "我的关注"
+			}
+		},
+		{
+			"path": "pages/mine/perfect",
+			"style": {
+				"navigationBarTitleText": "我玩过的本"
+			}
+		},
+		{
+			"path": "pages/mine/group",
+			"style": {
+				"navigationBarTitleText": "我的组局"
+			}
+		},
+		{
+			"path": "pages/mine/info",
+			"style": {
+				"navigationBarTitleText": "个人资料"
+			}
+		},
 		{
 			"path": "pages/mine/index",
 			"style": {

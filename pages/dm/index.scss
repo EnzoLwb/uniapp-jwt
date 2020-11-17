@@ -84,10 +84,7 @@
 			.drama_list{
 				background-color: #FFFFFF;
 				height:  calc(100vh - 80rpx - 120rpx );
-				.dramaList ::v-deep .list{
-						padding-top: 0rpx;
-					
-				}
+			
 				.review{
 					display: flex;
 					flex-direction: row;

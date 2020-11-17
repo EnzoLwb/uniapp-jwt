@@ -1,8 +1,8 @@
 <template>
 	<modal :show="visible" custom padding="0" width="90%" radius="18rpx">
 		<view class="header">
-			<image src="/static/images/index/menupopup_btn_share_normal.png"></image>
-			<image src="/static/images/index/round_close_btn.png" @tap="$emit('cancel')"></image>
+			<image src="/static/images/canteen/menupopup_btn_share_normal.png"></image>
+			<image src="/static/images/canteen/round_close_btn.png" @tap="$emit('cancel')"></image>
 		</view>
 		<swiper :duration="1000" indicator-dots class="swiper" autoplay :interval="3000">
 			<swiper-item v-for="(image, index) in productData.images" :key="index" class="swiper-item">

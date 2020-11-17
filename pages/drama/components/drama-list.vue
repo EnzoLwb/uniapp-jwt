@@ -1,5 +1,5 @@
 <template>
-	<view class="list">
+	<view class="list" :style="{ 'padding-top': padTop+'rpx' }">
 		<navigator class="product" v-for="(item, index) in dramas" :key="index" 
 		 hover-class="none" url="/pages/drama/index">
 			<view class="cu-card article">
@@ -24,13 +24,17 @@
 								</view>
 								<view style="max-width: 95%;">
 									<view class="cu-tag  light sm round bg-white text-grey"
-									 
 									 v-for=" (tag ,key) in item.tags" :key="key " >{{tag}}</view>
-								<!-- :class="key %2==0?'bg-red':'bg-green'" -->
 								</view>
-								<view class="finish" v-if="item.played"><image src="/static/images/drama/finished.png"></image></view>
-								<view class="guanzhu" v-if="item.guanzhu && !type"><image src="/static/images/drama/followed.png"></image></view>
-								<view class="guanzhu" v-if="!item.guanzhu && !type"><image src="/static/images/drama/follow.png"></image></view>
+								<!-- 已玩 -->
+								<view class="finish" @click.stop="finishDrama()" v-if="item.played">
+									<image src="/static/images/drama/finished.png"></image>
+								</view>
+								<!-- 关注 -->
+								<view class="guanzhu" v-if="">
+									<image :src="(item.guanzhu && !type) ? '/static/images/drama/followed.png':'/static/images/drama/follow.png' "></image>
+								</view>
+								<!-- 预约GO -->
 								<view class="reserve" v-if="type=='createGroup'">
 									<navigator :url="'/pages/group/create?drama_id='+item.drama_id" 
 									hover-stop-propagation
@@ -55,6 +59,10 @@
 				type: Array,
 				default: []
 			},
+			padTop: {
+				type: Number,
+				default: 230
+			},
 			type: {
 				type: String,//从哪跳转来的
 				default: ""
@@ -70,6 +78,9 @@
 				uni.navigateTo({
 				    url: '/pages/group/create?drama_id='+drama_id
 				});
+			},
+			finishDrama(){
+				console.log("finishDrama")
 			},
 		}
 	}

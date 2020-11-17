@@ -124,7 +124,7 @@
 		</view>
 		<!-- 弹窗店铺结束 -->
 		<!-- 加载 -->
-		<load-modal :show="loadModal"></load-modal>
+		<!-- <load-modal :show="loadModal"></load-modal> -->
 	</view>
 </template>
 
