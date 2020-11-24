@@ -142,12 +142,12 @@
 					"iconPath": "static/images/tarbar/index.png",
 					"text": "受理立案"
 				},
-				{
+/* 				{
 					"pagePath": "pages/rank/index",
 					"selectedIconPath": "static/images/tarbar/rank_selected.png",
 					"iconPath": "static/images/tarbar/rank.png",
 					"text": "唐人街排行榜"
-				},
+				}, */
 				{
 					"pagePath": "pages/mine/index",
 					"selectedIconPath": "static/images/tarbar/my_selected.png",

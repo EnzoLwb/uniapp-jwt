@@ -2,6 +2,8 @@
 	import Vue from 'vue'
 	export default {
 		onLaunch: function() {
+			const extConfig = wx.getExtConfigSync ? wx.getExtConfigSync() : {}
+			console.log(extConfig)
 			uni.getSystemInfo({
 				success: function(e) {
 					// #ifndef MP

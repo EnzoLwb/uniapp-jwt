@@ -1,0 +1,22 @@
+{
+  "extEnable": true,
+  "extAppid": "wxe5cc0838da773384",
+  "directCommit": false,
+  "ext": {
+    "name": "wechat",
+    "appId": "wxe5cc0838da773384",
+    "attr": {
+      "host": "open.weixin.qq.com",
+      "users": [
+        "user_1",
+        "user_2"
+      ]
+    }
+  },
+
+
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

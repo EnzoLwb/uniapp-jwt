@@ -5,7 +5,7 @@ export default
 				person_number:7,
 				begin_at:"2020-08-09 13:45:11",
 				created_at:"2020-08-11 00:00:00",
-				name:"古木林",
+				name:"古木林4",
 				cover:"https://www.myanshi.cn/wp-content/uploads/2020/10/1603674861-af5cdd01e11fa19.png",
 				reserve_id:11,
 			},

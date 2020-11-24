@@ -92,7 +92,7 @@
 										<span>{{item.number}}</span>
 									</view>
 								</view>
-								<view class="neutra-font kbcs">开本次数：34</view>
+								<view class="neutra-font kbcs">开本次数：134</view>
 							</view>
 						</navigator>
 					</swiper-item>
