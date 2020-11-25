@@ -6,8 +6,8 @@ Vue.use(Vuex)
 //为了方便测试，此处用vuex做全局数据
 const store = new Vuex.Store({
 	state: {
-		userInfo: {},
-		isLogin: false,
+		userInfo: uni.getStorageSync("user"),
+		isLogin: uni.getStorageSync("is_login"),
 		orderType: 'takein',
 		addresses: [{
 			"id": 1,

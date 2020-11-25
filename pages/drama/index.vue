@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<cu-custom bgColor="bg-white" :isBack="true"><block slot="content">剧本详情</block></cu-custom>
+		<cu-custom  ref="cust" bgColor="bg-white" :isBack="true"><block slot="content">剧本详情</block></cu-custom>
 		<!-- 封面标题标签人数价格 分享 -->
 		<drama-top></drama-top>
 		<!-- 简介 -->

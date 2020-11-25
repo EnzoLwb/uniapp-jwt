@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<cu-custom bgColor="bg-white" :isBack="true"><block slot="content">发起组局</block></cu-custom>
+		<cu-custom  ref="cust" bgColor="bg-white" :isBack="true"><block slot="content">发起组局</block></cu-custom>
 		<!-- 剧本信息 -->
 		<drama-top></drama-top>
 		<!-- 店铺地点 电话 导航-->

@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<cu-custom bgColor="bg-white" :isBack="true"><block slot="content">组局</block></cu-custom>
+		<cu-custom  ref="cust" bgColor="bg-white" :isBack="true"><block slot="content">组局</block></cu-custom>
 		<view class="addBtn" @click="navToCreate()"><image src="/static/images/group/Add.png"></image></view>
 		<view class="flex justify-between bg-white top-screen">
 			<view class="flex align-center">

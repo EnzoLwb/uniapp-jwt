@@ -8,7 +8,7 @@ const login = function(){
             return http.post('/auth/login',loginRes);
         })
         .then(res=>{
-					console.log("setToken")
+						console.log("setToken")
             jwt.setAccessToken(res.data.data.access_token);
             jwt.setUser(res.data.data.user);
             getApp().globalData.isLogin = true;

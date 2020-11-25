@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<cu-custom bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">我玩过的本</block></cu-custom>
+		<cu-custom  ref="cust" bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">我玩过的本</block></cu-custom>
 		<view class="main">
 			<drama-list :dramas="drama" padTop=10 ></drama-list>
 			<!-- 列表 end -->

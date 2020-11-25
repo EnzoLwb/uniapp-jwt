@@ -1,6 +1,6 @@
 <template>
 	<view class="">
-		<cu-custom bgColor="bg-white" :isBack="true"><block slot="content">优惠券</block></cu-custom>
+		<cu-custom  ref="cust" bgColor="bg-white" :isBack="true"><block slot="content">优惠券</block></cu-custom>
 		<!-- tab -->
 		<scroll-view scroll-x class="bg-white nav">
 			<view class="flex text-center">

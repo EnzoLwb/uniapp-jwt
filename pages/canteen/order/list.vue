@@ -1,6 +1,6 @@
 <template>
 	<view>
-	<cu-custom :isBack="true" bgColor="bg-gold text-white">
+	<cu-custom ref="cust" :isBack="true" bgColor="bg-gold text-white">
 		<block slot="backText" @click="back()" >返回</block>
 		<block slot="content">已选购</block>
 	</cu-custom>

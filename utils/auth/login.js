@@ -4,16 +4,19 @@ const loginCode = provider => {
         uni.login({
             provider: "weixin",
             success: function(loginRes) {
+							console.log("login")
                 if (loginRes && loginRes.code) { 
 									uni.getUserInfo({
 									      provider: 'weixin',
 									      success: function (infoRes) {
-													console.log(1111)
+													console.log("getUserInfo")
+													//获取app_id
+													var config = uni.getStorageSync('extConfig')
+													loginRes.app_id = config.appId
 													var res = Object.assign({},loginRes,infoRes.userInfo)
 													resolve(res) 
 									      }
 									    });
-									console.log(2222)
 								} else { 
 									reject("获取code失败")
 								}

@@ -10,7 +10,8 @@
 					<view class="font-size-base text-color-assist">登录后组队开局方便，享受更好的服务体验</view>
 				</view>
 				<view class="d-flex flex-column">
-					<button type="primary" class="w-100 font-size-lg mb-30" open-type="getUserInfo" @getuserinfo="getUserInfo">微信一键登陆</button>
+					<button type="primary" :loading="btnLoading" class="w-100 font-size-lg mb-30" 
+					open-type="getUserInfo" :disabled="btnLoading" @getuserinfo="getUserInfo">微信一键登陆</button>
 					<!-- <view class="text-center mb-30 font-size-sm text-color-assist">
 						点击登陆喜茶GO，即表示已阅读并同意<font class="text-color-primary">《喜茶隐私政策》</font>
 					</view>
@@ -23,18 +24,24 @@
 
 <script>
 	import uniPopup from '@/components/uni-popup/uni-popup.vue'
-	import { mapMutations } from 'vuex'
-	
+	import { mapMutations ,mapState} from 'vuex'
+	import auth from '@/utils/auth/auth.js';
 	export default {
 		name: 'LoginPopup',
 		components: {
 			uniPopup
 		},
+		data() {
+			return {
+				btnLoading:false,
+			}	
+		},
 		props: {
-			
+
 		},
 		methods: {
 			...mapMutations(['SET_USERINFO', 'SET_ISLOGIN']),
+			...mapState(['isLogin']),
 			open() {
 				this.$refs['popup'].open()
 			},
@@ -45,6 +52,7 @@
 				this.$emit('change', show)
 			},
 			getUserInfo(e) {
+				this.btnLoading = true;
 				//请配置AppID，否则获取失败
 				if(e.target.errMsg !== 'getUserInfo:ok') {
 					uni.showModal({
@@ -54,10 +62,19 @@
 					})
 					return
 				}
-				console.log(e.target.userInfo)
-				this.SET_USERINFO(e.target.userInfo)
-				this.SET_ISLOGIN(true)
-				this.close()
+
+				auth.login().then(res=>{
+					//更改头像和昵称啥的
+					this.SET_USERINFO(res)
+					this.SET_ISLOGIN(true)					uni.setStorageSync("is_login",true)
+					this.close()
+				}, function(error) {
+					uni.showToast({
+					    title: 'error',
+					});
+					this.btnLoading = false;
+				});
+
 			}
 		}
 	}

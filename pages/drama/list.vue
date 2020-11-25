@@ -1,6 +1,6 @@
 <template>
 <view>
-	<cu-custom bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">剧本库</block></cu-custom>
+	<cu-custom ref="cust" bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">剧本库</block></cu-custom>
 	<view class="container">
 		<view class="header">
 			<view class="search-box">
@@ -111,6 +111,12 @@
 			}
 		},
 		async onLoad(option){
+			this.$http.post('/test2',{rttt:1111}, {custom: {auth: true},}).then(res => {
+				console.log(res)
+			}).catch(err => {
+				console.log(err)
+				if(err=="401"){this.$refs.cust.openLogInPop()}
+			})
 			//获取type
 			if(option.type){
 				console.log(option)

@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<cu-custom bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">我的组局</block></cu-custom>
+		<cu-custom  ref="cust" bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">我的组局</block></cu-custom>
 		<view class="main">
 			<scroll-view scroll-x class="bg-white nav">
 				<view class="flex text-center">

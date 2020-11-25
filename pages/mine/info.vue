@@ -1,6 +1,6 @@
 <template>
 	<view class="container">
-		<cu-custom bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">个人资料</block></cu-custom>
+		<cu-custom  ref="cust" bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">个人资料</block></cu-custom>
 		<view class="brand">
 			<image src="https://wx.qlogo.cn/mmopen/vi_32/vM0qx5z4BQUQU4icZNct8Oib0Q0ypMW6hdhejkBxrTzibvYHtdyaQI85hsWvL6PoA3ic3Jjwn99YdfxEj1ib7gvaJeQ/132" class="avatar"></image>
 			<view class="username">tinypuppet</view>

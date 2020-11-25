@@ -3,7 +3,7 @@
 		<view class="content">
 			<view class="welcome" @tap="openLogin()">
 				<view class="wenyue-font login"  >
-					你好，<text> {{ isLogin ? userInfo.nickName : '立即登录' }}</text>
+					你好，<text> {{ isLogin ? userInfo.name : '立即登录' }}</text>
 				</view>
 				<view class="wel wenyue-font font-size-base" v-show="isLogin">欢迎光临本店</view>
 			</view>
@@ -11,14 +11,15 @@
 			<view class="member-card">
 				<view class="info">
 					<view class="title">
-						<view class="vip tips" @tap="openBenefits">普通会员</view>
+						<view class="vip tips" @tap="openBenefits()">普通会员</view>
+						<button class="vip tips" type="primary" open-type="getPhoneNumber" @getphonenumber="decryptPhoneNumber">获取手机号</button>
 						<!-- <view class="tips" @tap="openMember">
 							<view>成为星球会员享双倍积分</view>
 							<image src="/static/images/my/icon_arrow.png"></image>
 						</view> -->
 					</view>
 					<image @tap="myProfile()" 
-					:src="userInfo.avatarUrl ? userInfo.avatarUrl :'/static/images/my/avatar.png'" class="avatar"></image>
+					:src="userInfo.avatar ? userInfo.avatar :'/static/images/my/avatar.png'" class="avatar"></image>
 					<view class="badage">
 						Lv1
 					</view>
@@ -96,18 +97,28 @@
 <script>
 	import loginPopup from './components/login-popup.vue'
 	import listCell from '@/components/list-cell/list-cell.vue'
-		import { mapState } from 'vuex'
+	import { mapState } from 'vuex'
   export default{
 			data() {
 				return {
+
 				}	
 			},
 			computed: {
 				...mapState(['isLogin', 'userInfo'])
 			},
 			onLoad(option) {},
-			onShow(){},
+
 			methods: {
+				decryptPhoneNumber(e) {
+					this.$http.post('/user/get_phone',e.detail, {custom: {auth: true},}).then(res => {
+						console.log(res)
+					}).catch(err => {
+						console.log(err)
+						if(err=="401"){this.$refs.cust.openLogInPop()}
+					})
+					
+				},
 				openLogin() {
 					if(this.isLogin) {
 						return
@@ -126,6 +137,7 @@
 					})
 				},
 				myGroup() {
+					console.log("myGroup")
 					uni.navigateTo({
 						url:"/pages/mine/group"
 					})
@@ -144,6 +156,9 @@
 					uni.makePhoneCall({
 					    phoneNumber: "114" //仅为示例
 					});
+				},
+				openBenefits() {
+					console.log("openBenefits")
 				},
 			},
 			components: {

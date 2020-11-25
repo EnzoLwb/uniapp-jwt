@@ -1,10 +1,10 @@
 {
   "extEnable": true,
-  "extAppid": "wxe5cc0838da773384",
+  "extAppid": "wx78853d4fb5f58d7b",
   "directCommit": false,
   "ext": {
     "name": "wechat",
-    "appId": "wxe5cc0838da773384",
+    "appId": "wx78853d4fb5f58d7b",
     "attr": {
       "host": "open.weixin.qq.com",
       "users": [

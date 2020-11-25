@@ -1,7 +1,5 @@
 import jwt from '@/utils/auth/jwt.js'; // jwt 管理 见下文
 export default {
-	base_url : 'https://test.zhichang.iduoye.cn/jobs/',// http://jobs.ps/jobs/ 别少/!
-	login_url : 'https://zhichang.iduoye.cn/jobs/', // https://app.tysxpt.com/volunteer/api/ 正式地址  
 	memberObj:{
 			name:'初始姓名',
 	},

@@ -1,6 +1,6 @@
 <template>
 	<view class="">
-		<cu-custom bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">主持人详情</block></cu-custom>
+		<cu-custom  ref="cust" bgColor="bg-white" :isBack="true" :isHome="false"><block slot="content">主持人详情</block></cu-custom>
 		<view class="container">
 			<swiper class="banner-swiper" circular autoplay  :interval="5000" :duration="1000">
 				<swiper-item class="banner-swiper-item" v-for="(item, index) in swipers" :key="index">
