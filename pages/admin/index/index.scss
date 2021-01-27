@@ -1,0 +1,58 @@
+.bg_top_card{
+		height: 270rpx;
+	}
+	.manage{
+		.grid{
+			margin-bottom:6rpx;
+			margin-top: 20rpx;
+			border-radius: 10rpx;
+		}
+		.detail-grid{
+			border-radius: 10rpx;
+		}
+		margin:0 20rpx;
+		border-radius: 15rpx;
+	}
+
+	.banner{
+		margin: 40rpx 30rpx;
+		height: 200rpx;
+		padding-top:130rpx;
+		padding-left: 50rpx;
+	}
+	.cu-card>.cu-item{
+		margin:0;
+		border-radius: 20rpx;
+	}
+	.shop_card{
+		.cu-list{
+			padding: 30rpx 0;
+			.content{
+				line-height: .7em;
+				left:166rpx;
+				.add-time{
+					margin-left: 20rpx;
+					padding: 10rpx 20rpx;
+					border-radius: 10rpx;
+				}
+			}
+		}
+		margin: -170rpx 20rpx 0 20rpx	
+	}
+	.fixed-bottom{
+		z-index:10;
+		bottom: 60rpx;
+		margin: 30rpx 0;
+		.support{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			color:$text-color-assist;
+			font-size: $font-size-extra-sm;
+			image{
+				width:40rpx;height:40rpx;
+			}
+		}
+		
+	}

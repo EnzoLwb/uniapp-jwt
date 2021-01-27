@@ -111,11 +111,16 @@
 			}
 		},
 		async onLoad(option){
+			if(!uni.getStorageSync("is_login")){
+				//保存当前路径
+				var path = getCurrentPages().pop().route
+				uni.setStorageSync("LOGIN_CURRENTPATH",path)
+				return this.$common.catchErr(401,this)
+				}
 			this.$http.post('/test2',{rttt:1111}, {custom: {auth: true},}).then(res => {
 				console.log(res)
 			}).catch(err => {
-				console.log(err)
-				if(err=="401"){this.$refs.cust.openLogInPop()}
+				this.$common.catchErr(err,this)
 			})
 			//获取type
 			if(option.type){

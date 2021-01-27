@@ -9,7 +9,7 @@
 				<scroll-view scroll-x class="nav" scroll-with-animation :scroll-left="scrollLeftNumber">
 					<view class="cu-item " :class="index==NumberCur?'text-gold cur':''" v-for="(item,index) in drama.personNumber" 
 					:key="index" @tap="tabSelect" :data-id="index">
-						{{drama.personNumber-index}}
+						{{drama.personNumber - index}}
 					</view>
 				</scroll-view>
 				
@@ -68,6 +68,7 @@
 			this.datePicker = commonDatePicker.multiShow
 			this.dateArr = commonDatePicker.date
 			this.weekend = commonDatePicker.weekend
+			this.putArr = commonDatePicker.putArr
 			
 		},
 		data(){
@@ -79,6 +80,7 @@
 				DateCur:1,
 				TimeCur:0,
 				scrollLeftNumber:0,
+				putArr:[],//发给服务器的字符串 省的转换了
 				weekend:[],//周几数组
 				dateArr:[],//日期数组 直接返回给父组件
 			}
@@ -122,6 +124,7 @@
 				let data = {
 					NumberPerson:this.drama.personNumber - this.NumberCur, //
 					Date:this.dateArr[dateCur],
+					FormatDate:this.putArr[dateCur],
 					Time:this.time,
 					weekend:this.weekend[dateCur], //周几数组
 					

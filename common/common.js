@@ -3,6 +3,18 @@ export default {
 	memberObj:{
 			name:'初始姓名',
 	},
+	//通用网络请求failed显示
+	catchErr(err,that){
+		console.log(err)
+		if(err=="401" || err.statusCode=="401"){that.$refs.cust.openLogInPop()}//显示登陆框
+		if(err.statusCode=="400"){
+			uni.showToast({
+			    icon: "none",
+			    title: err.data.message == '' ? "服务器开小差了":err.data.message,
+			    duration:2000,
+			});
+		}
+	},
 	checkLogin(){
 	    var TOKEN  = jwt.getAccessToken();
 	    var userInfo  = jwt.getUser();
@@ -58,6 +70,7 @@ export default {
 		var oneDayTime = 24*60*60*1000 ; 
 		var dateArr = new Array()
 		var weekend = new Array()
+		var putArr = new Array()
 		var multiShow = new Array()
 		for(var i = 0 ; i < 8 ; i++){
 			//显示周一
@@ -70,8 +83,10 @@ export default {
 			date = date < 10 ? ('0' + date) : date;
 			var day = "周" + "日一二三四五六".charAt(myDate.getDay());
 			var d = month+"月"+date+"日"
+			var put = month+"-"+date
 			
 			dateArr.push(d)
+			putArr.push(put)
 			weekend.push(day)
 			multiShow.push(d + "	" + day)
 		}
@@ -79,6 +94,7 @@ export default {
 			date:dateArr,
 			weekend:weekend,
 			multiShow:multiShow,
+			putArr:putArr,
 		}
 		return mulData
 	},

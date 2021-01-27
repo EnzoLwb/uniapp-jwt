@@ -67,6 +67,16 @@
 					//更改头像和昵称啥的
 					this.SET_USERINFO(res)
 					this.SET_ISLOGIN(true)					uni.setStorageSync("is_login",true)
+					//跳转到之前的页面
+					var path = uni.getStorageSync("LOGIN_CURRENTPATH")
+					if(path){
+						uni.redirectTo({
+						    url: "/"+path,
+								success() {
+									uni.removeStorageSync("LOGIN_CURRENTPATH")
+								}
+						});
+					}
 					this.close()
 				}, function(error) {
 					uni.showToast({

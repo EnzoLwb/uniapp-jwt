@@ -10,9 +10,7 @@ const loginCode = provider => {
 									      provider: 'weixin',
 									      success: function (infoRes) {
 													console.log("getUserInfo")
-													//获取app_id
-													var config = uni.getStorageSync('extConfig')
-													loginRes.app_id = config.appId
+													loginRes.store_id = uni.getStorageSync("store_id")
 													var res = Object.assign({},loginRes,infoRes.userInfo)
 													resolve(res) 
 									      }

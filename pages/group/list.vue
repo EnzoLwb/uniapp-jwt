@@ -46,7 +46,7 @@
 		</view>
 		<!-- 历史列车 -->
 		<view class="list">
-			<view class="cu-card article" v-for="(item,index) in groupList2" :key="index">
+			<view class="cu-card article" v-for="(item,index) in groupList" :key="index">
 				<view class="cu-item shadow">
 					<view class="content" >
 						<view class="img_tag">
@@ -81,8 +81,8 @@
 			return {
 				fullRoom:true,
 				timeUp:true,
-				groupList:[],
-				groupList2:[
+				groupList2:[],
+				groupList:[
 					{
 						cover:"https://www.myanshi.cn/wp-content/uploads/2020/10/1603674861-af5cdd01e11fa19.png",
 						group_id:6,

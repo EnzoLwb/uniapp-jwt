@@ -2,7 +2,7 @@ import Request from './core/Request.js'
 export default Request
 import jwt from '@/utils/auth/jwt.js'; // jwt 管理 见下文
 const http = new Request();
-const baseUrl = 'http://localhost:1299/drama'; // api 地址
+const baseUrl = 'http://y2m.mynatapp.cc/drama'; // api 地址
 var platform = 'MP-WEIXIN'; // 登陆时需知道来自哪个平台的小程序用户
 
 /* 设置全局配置 */

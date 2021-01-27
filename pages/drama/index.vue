@@ -9,7 +9,8 @@
 				简介
 			</view>
 			<view class="content" :class="shenglue?'shenglue':''">
-				2018年9月27日上午10:00，牛海市近郊的一个小海岛——温乡岛上的温乡湖如往常一样平静。几个游客刚刚抵达岸边，马上要准备垂钓。远远地看见湖中央漂浮着一个奇怪的物体。有人拿出手机，利用手机相机将镜头拉近观看，赫然发现这是一具尸体，便立即报警。 10:30，从牛海市赶来的警方开始盘问岛上所有居民与游客。而通过身份辨认，锁定此人名叫钟德全，是与现在“温乡别墅”度假的7个年轻人一同前来的。因此“温乡别墅”也就成为了警方的重点排查对象。
+				<!-- 2018年9月27日上午10:00，牛海市近郊的一个小海岛——温乡岛上的温乡湖如往常一样平静。几个游客刚刚抵达岸边，马上要准备垂钓。远远地看见湖中央漂浮着一个奇怪的物体。有人拿出手机，利用手机相机将镜头拉近观看，赫然发现这是一具尸体，便立即报警。 10:30，从牛海市赶来的警方开始盘问岛上所有居民与游客。而通过身份辨认，锁定此人名叫钟德全，是与现在“温乡别墅”度假的7个年轻人一同前来的。因此“温乡别墅”也就成为了警方的重点排查对象。 -->
+				 <rich-text :nodes="detail"></rich-text>
 				<view class="more" @tap="more()">
 					<text>{{shenglue?"展开":"收起"}}</text>
 					<image :src="shenglue?'/static/images/common/down.png':'/static/images/common/up.png'" class="down-icon"></image>
@@ -84,6 +85,7 @@
 				visible:false,
 				autoplay:false,
 				current_role:0,
+				detail:'<p style="text-align: center;"><span style="font-size: 14px; text-align: center;">荒山暴雨</span></p><p style="text-align: center;"><span style="font-size: 14px;">......</span></p><p style="text-align: center;"><span style="font-size: 14px;">慌乱的身影，暴怒的【苦面柱】大人</span></p><p style="text-align: center;"><span style="font-size: 14px;">.......</span></p><p style="text-align: center;"><span style="font-size: 14px;">一封密信，指引无助的你们来到【苦面柱之屋】，庭院、长廊、密室</span></p><p style="text-align: center;"><span style="font-size: 14px;">......你们疯狂逃窜......</span></p><p style="text-align: center;"><span style="font-size: 14px;">如果被【苦面柱】大人抓住，就会被杀死吧</span></p><p style="text-align: center;"><span style="font-size: 14px;">......</span></p><p style="text-align: center;"><span style="font-size: 14px;">不能被抓住！</span></p><p style="text-align: center;"><span style="font-size: 14px;">不能被抓住！</span></p><p style="text-align: center;"><span style="font-size: 14px;">鲜血不住流淌，究竟是谁的罪过招来了【苦面柱】大人？</span></p><p style="text-align: center;"><span style="font-size: 14px;">究竟是谁</span></p><p style="text-align: center;"><span style="font-size: 14px;">......</span></p><p style="text-align: center;"><span style="font-size: 14px;">你们，恐怕没命挨到天亮了</span></p><p style="text-align: center;"><span style="font-size: 14px;">.....</span></p>',
 				shenglue:true, //超过100个字就true 小于250个字就false
 				role_list:[
 					{

@@ -5,9 +5,11 @@ import boardcast from './boardcast.js'
 import hotList from './hotList.js'
 import drama from './drama.js'
 import myGroup from './myGroup.js'
+import admin from './admin.js'
 
 const json = {
 	drama,
+	admin,
 	myGroup,
 	notices,
 	historySearch,

@@ -200,6 +200,7 @@
 			/* setTimeout(() => {
 				this.loadModal = false;
 			}, 3000) */
+
 		},
 		onShareAppMessage(res) {
 		    if (res.from === 'button') {// 来自页面内分享按钮  menu 右上角

@@ -3,7 +3,7 @@
 		<view class="content">
 			<view class="welcome" @tap="openLogin()">
 				<view class="wenyue-font login"  >
-					你好，<text> {{ isLogin ? userInfo.name : '立即登录' }}</text>
+					你好，<text> {{ isLogin ? userInfo.wx_name : '立即登录' }}</text>
 				</view>
 				<view class="wel wenyue-font font-size-base" v-show="isLogin">欢迎光临本店</view>
 			</view>
@@ -11,8 +11,9 @@
 			<view class="member-card">
 				<view class="info">
 					<view class="title">
-						<view class="vip tips" @tap="openBenefits()">普通会员</view>
-						<button class="vip tips" type="primary" open-type="getPhoneNumber" @getphonenumber="decryptPhoneNumber">获取手机号</button>
+						<view class="vip tips" @tap="payOrder()">普通会员/充值</view>
+						<button class="vip tips" type="primary" open-type="getPhoneNumber" 
+						@getphonenumber="decryptPhoneNumber">获取手机号</button>
 						<!-- <view class="tips" @tap="openMember">
 							<view>成为星球会员享双倍积分</view>
 							<image src="/static/images/my/icon_arrow.png"></image>
@@ -57,6 +58,18 @@
 					<view class="subtitle">个性签名 让别人更了解你</view>
 				</view>
 			</list-cell>
+			<list-cell hover arrow @click="myAdmin()" v-if="admin">
+				<view class="list-cell-wrapper">
+					<view class="title"><text class="icon cuIcon-shop line-gold"></text>管理店铺</view>
+					<view class="subtitle">管理员</view>
+				</view>
+			</list-cell>
+			<list-cell hover arrow @click="myDM()" v-if="is_dm">
+				<view class="list-cell-wrapper">
+					<view class="title"><text class="icon cuIcon-voice line-gold"></text>DM管理</view>
+					<view class="subtitle">整理身为DM的信息</view>
+				</view>
+			</list-cell>
 			<!-- 我的组局 全部 组局中 已成局 已解散-->
 			<list-cell hover arrow @click="myGroup()">
 				<view class="list-cell-wrapper">
@@ -80,8 +93,13 @@
 					<view class="title"><text class="icon cuIcon-phone line-gold"></text>联系我们</view>
 				</view>
 			</list-cell>
+			<list-cell hover  @click="clear()">
+				<view class="list-cell-wrapper">
+					<view class="title"><text class="icon cuIcon-delete line-gold"></text>清除缓存</view>
+				</view>
+			</list-cell>
 		</view>
-		<view class="fixed-bottom">
+		<view class="fixed-bottom" v-if="!admin"><!-- 如果为管理员权限这就不显示了 -->
 			<view class="support">
 				<view style="margin:0 auto">
 					<image src="/static/images/common/logo.png" mode=""></image>
@@ -97,15 +115,17 @@
 <script>
 	import loginPopup from './components/login-popup.vue'
 	import listCell from '@/components/list-cell/list-cell.vue'
-	import { mapState } from 'vuex'
+	import jwt from '@/utils/auth/jwt.js';
+	import { mapState , mapMutations} from 'vuex'
   export default{
 			data() {
 				return {
-
+						admin:true,
+						is_dm:false,
 				}	
 			},
 			computed: {
-				...mapState(['isLogin', 'userInfo'])
+				...mapState(['isLogin', 'userInfo']),
 			},
 			onLoad(option) {},
 
@@ -115,7 +135,8 @@
 						console.log(res)
 					}).catch(err => {
 						console.log(err)
-						if(err=="401"){this.$refs.cust.openLogInPop()}
+						this.$common.catchErr(err,this)
+						
 					})
 					
 				},
@@ -134,6 +155,18 @@
 					console.log(this.isLogin)
 					uni.navigateTo({
 						url:"/pages/mine/info"
+					})
+				},
+				myAdmin() {
+					console.log("myAdmin")
+					uni.navigateTo({
+						url:"/pages/admin/index/index"
+					})
+				},
+				myDM() {
+					console.log("myDM")
+					uni.navigateTo({
+						url:"/pages/admin/members/dm"
 					})
 				},
 				myGroup() {
@@ -158,8 +191,116 @@
 					});
 				},
 				openBenefits() {
-					console.log("openBenefits")
+					console.log("充值")
+					var payInfoData = {
+						amount:0.02,
+						activity_id: "DeZ0vmnVdfhLZtMOOZXY2zlESeHR8tvysJB3",
+						store_id: "DeZ0vmnVdfhLZtMOOZXY2zlESeHR8tvysJBp",
+					};
+					this.$http.post('/pay/recharge',payInfoData, {custom: {auth: true},}).then(res => {
+						console.log(res.data);
+						if(res.data.data.return_code ==='SUCCESS'){
+							let req = res.data.data
+							uni.showLoading({
+								mask:true,
+								title:"生成订单中",
+							})
+							uni.requestPayment({
+							    provider: 'wxpay',
+							    timeStamp: req.timeStamp,
+							    nonceStr: req.nonce_str,
+							    package: 'prepay_id='+req.prepay_id,
+							    signType: 'MD5',
+							    paySign: req.paySign,
+							    success: function (res) {
+											uni.showToast({
+													title: '支付成功',
+													duration: 1000
+											});
+											//查询接口
+									},
+							    fail: function (err) {
+							        console.log('failrequestPayment:' + JSON.stringify(err));
+							    },
+									complete() {
+										uni.hideLoading()
+									}
+							});			
+						}else{
+							uni.showToast({
+								title: res.data.data.message,
+								duration: 1000
+							})
+							console.log('getWxSignfalse:' + JSON.stringify(res.data));
+						}
+						
+					}).catch(err => {
+						console.log(err)
+						this.$common.catchErr(err,this)
+					})
 				},
+				payOrder() {
+					console.log("组局买单")
+					var payInfoData = {
+								"user_ids":[1,2],
+						    "store_id":"DeZ0vmnVdfhLZtMOOZXY2zlESeHR8tvysJBp",
+						    "group_id":"5lSl6VN0P6mXjeeqzPXBJKQO6IMc7PoMEQHK",
+						    "coupon_id":2,
+						    "pay_mode":"wx",
+						    "remark":"备注"
+					};
+					this.$http.post('/pay/group_order',payInfoData, {custom: {auth: true},}).then(res => {
+						console.log(res.data);
+						if(res.data.data.return_code ==='SUCCESS'){
+							let req = res.data.data
+							uni.showLoading({
+								mask:true,
+								title:"生成订单中",
+							})
+							uni.requestPayment({
+							    provider: 'wxpay',
+							    timeStamp: req.timeStamp,
+							    nonceStr: req.nonce_str,
+							    package: 'prepay_id='+req.prepay_id,
+							    signType: 'MD5',
+							    paySign: req.paySign,
+							    success: function (res) {
+											uni.showToast({
+													title: '支付成功',
+													duration: 1000
+											});
+											//查询接口
+									},
+							    fail: function (err) {
+							        console.log('failrequestPayment:' + JSON.stringify(err));
+							    },
+									complete() {
+										uni.hideLoading()
+									}
+							});			
+						}else{
+							uni.showToast({
+								title: res.data.data.message,
+								duration: 1000
+							})
+							console.log('getWxSignfalse:' + JSON.stringify(res.data));
+						}
+						
+					}).catch(err => {
+						console.log(err)
+						this.$common.catchErr(err,this)
+					})
+				},
+				clear: function(){
+				    jwt.clearAccessToken();
+				    jwt.clearUser();
+						uni.removeStorageSync("is_login")					
+				    uni.showToast({
+				        icon: 'success',
+				        title: '清除成功',
+				        duration:2000,
+				    });
+				}
 			},
 			components: {
 				loginPopup,listCell
@@ -176,22 +317,6 @@
 		margin: 0 40rpx;
 		padding-top: 180rpx;
 		// border-bottom: 1rpx solid rgba($color: $border-color, $alpha: 0.5);
-		
-	}
-	.fixed-bottom{
-		z-index:10;
-		bottom: 60rpx;
-		.support{
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			text-align: center;
-			color:$text-color-assist;
-			font-size: $font-size-extra-sm;
-			image{
-				width:40rpx;height:40rpx;
-			}
-		}
 		
 	}
 	.welcome {
@@ -399,6 +524,7 @@
 	}
 	.cell   {
 		padding: 0rpx 30rpx;	
+		
 	}
 	list-cell .list-cell-wrapper {
 		width: 100%;
@@ -419,5 +545,21 @@
 			color: $text-color-assist;
 		}
 	}
-	
+	.fixed-bottom{
+		z-index:10;
+		bottom: 60rpx;
+		margin: 30rpx 0;
+		.support{
+			display: relative;
+			flex-direction: column;
+			justify-content: center;
+			text-align: center;
+			color:$text-color-assist;
+			font-size: $font-size-extra-sm;
+			image{
+				width:40rpx;height:40rpx;
+			}
+		}
+		
+	}
 </style>

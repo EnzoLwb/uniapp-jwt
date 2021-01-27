@@ -65,6 +65,9 @@
 					time:"12:00",
 					person_number:4,
 				},
+				drama:{
+					personNumber:7,
+				},
 				shop:{
 					address:"天津市南开区西湖道龙井里B区22-2-102(麦当劳旁入口进入)",
 					name:"麦侦探事务所",

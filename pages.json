@@ -1,13 +1,32 @@
 {
 	"pages": [ 
-
+		//Home
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页"
 			}
 		},
-
+		//后台开始
+		{
+			"path": "pages/admin/index/index",
+			"style": {
+				"navigationBarTitleText": "店铺管理"
+			}
+		},
+		{
+			"path": "pages/admin/members/dm",
+			"style": {
+				"navigationBarTitleText": "主持人管理"
+			}
+		},
+		{
+			"path": "pages/admin/members/index",
+			"style": {
+				"navigationBarTitleText": "会员管理"
+			}
+		},
+		//后台结束
 		//组局
 		{
 			"path": "pages/group/index",
@@ -28,7 +47,6 @@
 			}
 		},
 		//首页
-
 		{
 			"path": "pages/drama/list",
 			"style": {
@@ -119,6 +137,12 @@
 			"path": "pages/mine/coupons",
 			"style": {
 				"navigationBarTitleText": "优惠券"
+			}
+		},
+		{
+			"path": "pages/mine/wallet",
+			"style": {
+				"navigationBarTitleText": "钱包"
 			}
 		}
 		//个人中心结束

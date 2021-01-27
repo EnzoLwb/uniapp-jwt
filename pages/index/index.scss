@@ -61,7 +61,7 @@ page {
 		}
 	/* 弹窗结束 */
 	.navbar {
-		height: calc(100rpx + var(--status-bar-height));
+		height: calc(100rpx + var(--status-bar-height) * 1.75);
 		/* #ifdef H5 */
 		height: 88rpx;
 		/* #endif */
@@ -76,7 +76,7 @@ page {
 	.talk-btn {
 		height: 64rpx;
 		// margin-left: 10px;
-		margin-top: 72rpx;
+		margin-top: calc(var(--status-bar-height)*2) ;
 		/* #ifdef H5 */
 		margin-top: 6px;
 		/* #endif */
