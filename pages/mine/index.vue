@@ -66,7 +66,7 @@
 			</list-cell>
 			<list-cell hover arrow @click="myDM()" v-if="is_dm">
 				<view class="list-cell-wrapper">
-					<view class="title"><text class="icon cuIcon-voice line-gold"></text>DM管理</view>
+					<view class="title"><text class="icon cuIcon-voice line-gold"></text>我的DM管理</view>
 					<view class="subtitle">整理身为DM的信息</view>
 				</view>
 			</list-cell>
@@ -121,7 +121,7 @@
 			data() {
 				return {
 						admin:true,
-						is_dm:false,
+						is_dm:true,
 				}	
 			},
 			computed: {
@@ -166,7 +166,7 @@
 				myDM() {
 					console.log("myDM")
 					uni.navigateTo({
-						url:"/pages/admin/members/dm"
+						url:"/pages/admin/dm_manage/dm"
 					})
 				},
 				myGroup() {

@@ -648,3 +648,6 @@ uni-modal .uni-modal {
 	text-overflow: ellipsis;
 	white-space: nowrap;//控制行数时这个不显示
 }
+.right-top-close{
+	position: absolute;top:0;right:1px;background-color:orangered;color:white;
+}

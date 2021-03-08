@@ -10,7 +10,9 @@
 			<view class="title"><text class="cuIcon-titles text-gold">具体信息</text></view>
 			<view class="change_btn flex">
 				<button class="cu-btn bg-black text-white">
-					{{reserve.date}} {{reserve.time}} {{reserve.person_number}}人
+					{{reserve.date}} {{reserve.time}} {{reserve.person_number}}人 
+					<text v-show="is_admin" class="text-gold" style="text-decoration: underline;"
+					@tap="openPopup">修改</text>
 				</button>
 			</view>
 			<view class="title" style="padding-bottom: 10rpx;">
@@ -32,9 +34,10 @@
 				<view class="cu-avatar round lg margin-left"  v-for="(item,index) in reserve.members" :key="index" :style="[{ backgroundImage:'url(' + item + ')' }]">
 					<view class="cu-tag badge" :class="index%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'"></view>
 				</view>
-				<view class="cu-avatar round bg-white lg margin-left wait-join"  v-for="(item,index) in (reserve.person_number - reserve.members.length)" :key="index" >
-					
-				</view>
+				<!-- 添加按钮 -->
+				<view class="cu-avatar round bg-white lg margin-left wait-join" v-for="(item,index) in (reserve.person_number - reserve.members.length)" :key="index" ></view>
+				<!-- 管理按钮 -->
+				<view class="cu-avatar round bg-white lg margin-left cuIcon-more" @click="playerPop()"></view>
 			</view>
 			
 		</view>
@@ -92,22 +95,33 @@
 					</view>
 				</view>
 		</view>
+		<!-- 下部弹出框调整信息 -->
+		<reserve-popup ref="reservePopup" @reserveSubmit="reserveSubmit" :drama="drama"></reserve-popup>
+		<player-popup ref="playerPopup" :group="reserve.drama_id"></player-popup>
 	</view>
 </template>
 
 <script>
 	import DramaTop from '../drama/components/drama-index.vue'
 	import ShopDetail from './components/shop-detail.vue'
-
+	import reservePopup from './components/reserve-popup.vue'
+	import playerPopup from './components/player-popup.vue'
 	export default{
 		components: {
-			DramaTop,ShopDetail
+			DramaTop,ShopDetail,reservePopup,playerPopup
 		},
 		data(){
 			return {
 				visible:false,
 				autoplay:false,
+				is_admin:true,
 				current_role:0,
+				drama:{
+					personNumber:7,
+				},
+				userCurent:{
+					avatar:'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg',
+				},
 				reserve:{
 					drama_id:11,
 					date:this.$common.originReserveTime(),//默认是转天 与子组件统一
@@ -146,6 +160,22 @@
 			}
 		},
 		methods:{
+			//子组件按钮提交后
+			reserveSubmit(data)
+			{
+				console.log("reserveSubmit")
+				console.log(data)
+				this.reserve.date = data.Date + " " + data.weekend
+				this.reserve.time = data.Time
+				this.reserve.person_number = data.NumberPerson
+				this.reserve.dateOrigin = data.Date
+			},
+			openPopup() {
+				this.$refs['reservePopup'].open()
+			},
+			playerPop() {
+				this.$refs['playerPopup'].open()
+			},
 			showAddressModal(index)
 			{
 				this.visible = !this.visible

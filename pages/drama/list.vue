@@ -61,12 +61,6 @@
 							<button class="cu-btnline-grey" :class="dramaFormSelected==item?'line-gold':''"  @click="dramaFormSelected = item" ><b>{{item}}</b></button>
 						</view>
 					</view>
-					<view class="type">剧本类型</view>
-					<view class="grid">
-						<view class="margin-tb-sm text-center"  v-for="(item,index) in dramaOpen" :key="index" >
-							<button class="cu-btnline-grey" :class="dramaOpenSelected==item?'line-gold':''"  @click="dramaOpenSelected = item" ><b>{{item}}</b></button>
-						</view>
-					</view>
 				</view>
 			</view>
 		</scroll-view>
@@ -111,7 +105,7 @@
 			}
 		},
 		async onLoad(option){
-			if(!uni.getStorageSync("is_login")){
+/* 			if(!uni.getStorageSync("is_login")){
 				//保存当前路径
 				var path = getCurrentPages().pop().route
 				uni.setStorageSync("LOGIN_CURRENTPATH",path)
@@ -121,7 +115,7 @@
 				console.log(res)
 			}).catch(err => {
 				this.$common.catchErr(err,this)
-			})
+			}) */
 			//获取type
 			if(option.type){
 				console.log(option)

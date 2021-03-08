@@ -12,7 +12,7 @@ import defaultQue from './components/nomore/default.vue'
 Vue.component('cu-custom',cuCustom)
 Vue.component('load-modal',loadingModal)
 Vue.component('default-que',defaultQue)
-
+//设置身份没有DM 主持人应该是单独的表控制 店小二不能管理金钱方向的东西
 Vue.prototype.$http = http
 Vue.prototype.$api = api
 Vue.prototype.$store = store

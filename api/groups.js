@@ -13,7 +13,6 @@ export default
 						corner:"DM推荐",
 						drama_id:13,
 						clothes:true,
-						dmed:true,//admin dm 是否是可以开的本
 					},
 					{
 						cover:"https://www.myanshi.cn/wp-content/uploads/2020/10/1603675034-d17b9800f4d3ebd.jpg",
@@ -28,7 +27,6 @@ export default
 						layout:"盒装",
 						drama_id:13,
 						clothes:true,
-						dmed:true,
 					},
 					{
 						cover:"https://www.myanshi.cn/wp-content/uploads/2020/10/1603335530-13227c8208abaac.jpg",

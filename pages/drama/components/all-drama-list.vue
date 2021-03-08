@@ -1,7 +1,6 @@
 <template>
 	<view class="list" :style="{ 'padding-top': padTop+'rpx' }">
-		<view class="product" v-for="(item, index) in dramas" :key="index" 
-		  @click="handleClick(item)">
+		<view class="product" v-for="(item, index) in dramas" :key="index" >
 			<view class="cu-card article">
 					<view class="cu-item shadow">
 						<view class="content" >
@@ -26,47 +25,22 @@
 									<view class="cu-tag  light sm round bg-white text-grey"
 									 v-for=" (tag ,key) in item.tags" :key="key " >{{tag}}</view>
 								</view>
-								<!-- 已玩 -->
-								<view class="finish" @click.stop="finishDrama()" v-if="item.played && type !='admin' ">
-									<image src="/static/images/drama/finished.png"></image>
-								</view>
-								<!-- 可以开的本 -->
-								<view class="finish" v-if="item.dmed && type =='admin' ">
-									<image src="/static/images/drama/finished.png"></image>
-								</view>
-								<!-- 关注 -->
-								<view class="guanzhu" v-if="!type ">
-									<image :src="item.guanzhu ? '/static/images/drama/followed.png':'/static/images/drama/follow.png' "></image>
-								</view>
-								<!-- 预约GO -->
-								<view class="reserve" v-if="type=='createGroup'">
-									<navigator :url="'/pages/group/create?drama_id='+item.drama_id" 
-									hover-stop-propagation
-									hover-class="navigator-hover">
-										<button class="cu-btn bg-gold">预约Go</button>
-									</navigator>
-								</view>
+
 							</view>
 						</view>
 					</view>
 				</view>
 		</view>
-		<!-- 当后台维护下需要弹出 -->
-		<admin ref="dramaPopup" v-if="type =='admin'"></admin>
 	</view>
 </template>
 
 <script>
-	import admin from './setting-popup.vue'
 	export default {
-		name: "DramaList",
-		components: {
-			admin
-		},
+		name: "AllDramaList",
 		data(){
-			return{
-				
-			}
+				return{
+					all:[],
+				}
 		},
 		props: {
 			dramas: {
@@ -77,33 +51,8 @@
 				type: Number,
 				default: 230
 			},
-			type: {
-				type: String,//从哪跳转来的
-				default: ""
-			},
 		},
 		methods: {
-			handleClick(drama) {
-				if(this.type=='admin'){
-					this.$refs.dramaPopup.open()
-					this.$refs.dramaPopup.setDrama(drama)
-					return;
-				}
-				uni.navigateTo({
-				    url: '/pages/drama/index?drama_id='+drama_id
-				});
-				/* this.$emit('click', {
-					index: this.index
-				}); */
-			},
-			navToReserve(drama_id){
-				uni.navigateTo({
-				    url: '/pages/group/create?drama_id='+drama_id
-				});
-			},
-			finishDrama(){
-				console.log("finishDrama")
-			},
 
 		}
 	}

@@ -98,5 +98,27 @@ export default {
 		}
 		return mulData
 	},
+	adminReserveDateList(){
+		//获取系统当前时间
+		var now = new Date(); 
+		var nowTime = now.getTime() ; 
+		var oneDayTime = 24*60*60*1000 ; 
+		var putArr = new Array()
+		for(var i = -1 ; i < 8 ; i++){
+			//显示周一
+			var ShowTime = nowTime + (i)*oneDayTime ; 
+			//初始化日期时间
+			var myDate = new Date(ShowTime); 
+			var month=myDate.getMonth()+1;  
+			month = month < 10 ? ('0' + month) : month;
+			var date=myDate.getDate(); 
+			date = date < 10 ? ('0' + date) : date;
+			var day = "日一二三四五六".charAt(myDate.getDay());
+			var put = month+"."+date
+			
+			putArr.push(put+day)
+		}
+		return putArr
+	},
 	
 }

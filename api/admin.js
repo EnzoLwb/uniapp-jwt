@@ -34,7 +34,7 @@ export default
 						name: '联系玩家，发起收款，发送成局通知',
 						color: 'pink',
 						cuIcon: 'calendar',
-						url:'/pages/admin/groups/reserve'
+						url:'/pages/admin/groups/reserve'	
 					},
 					{
 						title: '开本历史',
@@ -46,14 +46,14 @@ export default
 			],
 			"剧本":[
 				{
-					title: '添加剧本',
+					title: '上传剧本',
 					name: '手动添加新本',
 					color: 'orange',
 					cuIcon: 'roundadd',
 					url:'/pages/admin/dramas/add'
 				},
 				{
-					title: '管理剧本',
+					title: '剧本管理',
 					name: '专业剧本总库，无需上传，点点即可',
 					color: 'red',
 					cuIcon: 'form',
@@ -85,7 +85,7 @@ export default
 			],
 			"人员":[
 				{
-					title: '会员管理管理',
+					title: '会员管理',
 					name: '用户信息查看、修改',
 					color: 'pink',
 					cuIcon: 'peoplelist',
@@ -113,6 +113,13 @@ export default
 					color: 'cyan',
 					cuIcon: 'ticket',
 					url:'/pages/admin/extend/coupons'
+				},
+				{
+					title: '充值管理',
+					name: '管理充值活动',
+					color: 'brown',
+					cuIcon: 'ticket',
+					url:'/pages/admin/extend/recharge'
 				},
 				{
 					title: '预约管理',

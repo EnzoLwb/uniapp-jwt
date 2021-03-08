@@ -1,19 +1,90 @@
 {
 	"pages": [ 
-		//Home
 		{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "首页"
 			}
 		},
+
+		//Home
+
+		//DM管理的页面
+		{
+			"path": "pages/admin/dm_manage/profile",
+			"style": {
+				"navigationBarTitleText": "编辑资料"
+			}
+		},
+		{
+			"path": "pages/admin/dm_manage/comments",
+			"style": {
+				"navigationBarTitleText": "评价审核"
+			}
+		},
+		{
+			"path": "pages/admin/dm_manage/dm",
+			"style": {
+				"navigationBarTitleText": "我的DM管理"
+			}
+		},
+
 		//后台开始
 		{
 			"path": "pages/admin/index/index",
 			"style": {
-				"navigationBarTitleText": "店铺管理"
+				"navigationBarTitleText": "管理店铺"
 			}
 		},
+		{
+			"path": "pages/admin/members/index",
+			"style": {
+				"navigationBarTitleText": "会员管理"
+			}
+		},
+		{
+			"path": "pages/admin/finance/check",
+			"style": {
+				"navigationBarTitleText": "买单记录"
+			}
+		},
+		{
+			"path": "pages/admin/finance/deposit",
+			"style": {
+				"navigationBarTitleText": "充值记录"
+			}
+		},
+		{
+			"path": "pages/admin/finance/person",
+			"style": {
+				"navigationBarTitleText": "资金明细"
+			}
+		},
+		{
+			"path": "pages/admin/dramas/list",
+			"style": {
+				"navigationBarTitleText": "剧本管理"
+			}
+		},
+		{
+			"path": "pages/admin/dramas/add",
+			"style": {
+				"navigationBarTitleText": "上传剧本"
+			}
+		},
+		{
+			"path": "pages/admin/groups/reserve",
+			"style": {
+				"navigationBarTitleText": "预约管理"
+			}
+		},
+		{
+			"path": "pages/admin/dramas/opening-group",
+			"style": {
+				"navigationBarTitleText": "开本历史"
+			}
+		},
+		//会员管理中的开始
 		{
 			"path": "pages/admin/members/dm",
 			"style": {
@@ -21,9 +92,23 @@
 			}
 		},
 		{
-			"path": "pages/admin/members/index",
+			"path": "pages/admin/members/coupons",
 			"style": {
-				"navigationBarTitleText": "会员管理"
+				"navigationBarTitleText": "发送优惠券"
+			}
+		},
+		//会员管理中的结束
+		//推广管理
+		{
+			"path": "pages/admin/extend/coupons",
+			"style": {
+				"navigationBarTitleText": "优惠券管理"
+			}
+		},
+		{
+			"path": "pages/admin/extend/recharge",
+			"style": {
+				"navigationBarTitleText": "充值管理"
 			}
 		},
 		//后台结束

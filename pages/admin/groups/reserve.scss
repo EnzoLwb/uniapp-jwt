@@ -1,0 +1,19 @@
+.container{
+	.header{
+		background-color: white;
+		position: fixed;
+		width: 100%;
+		z-index: 99;
+		.nav .cu-item{
+			height: 70rpx;
+			line-height: 70rpx;
+			font-size: $font-size-xl;
+			margin: 0 14rpx;
+			padding: 0 18rpx;
+		}
+		.nav .cu-item.cur{
+			border-bottom: 8rpx solid;
+		}
+	}
+
+}
